@@ -1,0 +1,5 @@
+{% for page in pages %}
+{% if not forloop.first %}
+<li><a href="{{ page.get_absolute_url }}">{{ page.menu_title }}</a></li>
+{% endif %}
+{% endfor %}

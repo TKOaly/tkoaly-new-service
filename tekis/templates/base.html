@@ -1,0 +1,52 @@
+<!doctype html>
+
+{% load i18n %}
+{% load flatpage_tags %}
+
+{% block header %}{% endblock %}
+<title>Tko-Äly ry</title>
+
+{% block menu %}
+<div id="menu">
+  <ul>
+    <li><a href="{% mainpage_link_for_category 1 %}">{% trans "Association" %}</a>
+      <ul>
+	{% menu_for_category 1 %}
+      </ul>
+    </li>
+    <li><a href="{% mainpage_link_for_category 2 %}">{% trans "Activities" %}</a>
+      <ul>
+	{% menu_for_category 2 %}
+      </ul>
+    </li>
+    {% menu_for_category 0 %}
+  </ul>
+</div>
+{% endblock %}
+<div id="language_select">
+
+  <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <select name="language">
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+      <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+        {{ language.name_local }} ({{ language.code }})
+      </option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Go" />
+  </form>
+</div>
+
+<div id="content">
+  <a href="/">
+    <h1>Tko-äly ry</h1>
+  </a>
+  {% block content %}{% endblock %}
+</div>
+
+<hr>
+{% block footer %}(Footer){% endblock %}

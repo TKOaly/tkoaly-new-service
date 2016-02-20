@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% load markup_tags %}
+
+{% block content %}
+<h2>{{ page.title }}</h2>
+
+{{ page.content|apply_markup:page.content_markup }}
+
+{% endblock %}
