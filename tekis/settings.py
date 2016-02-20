@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # first party apps
     'tekis.flatpages',
+    'tekis.members',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -90,8 +91,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'members': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'members.sqlite3'),
     }
 }
+DATABASE_ROUTERS = ['tekis.members.routers.MembersRouter']
+AUTHENTICATION_BACKENDS = ['tekis.members.backends.TekisAuthBackend']
 
 
 # Password validation
