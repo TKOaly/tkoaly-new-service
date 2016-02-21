@@ -5,3 +5,4 @@ tekis/files/
 django.mo
 .DS_Store
 public/
+env/
