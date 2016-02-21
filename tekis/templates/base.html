@@ -76,9 +76,9 @@
 	      {% for language in languages %}
 	      <li>
 		{% if language.code == LANGUAGE_CODE %}
-		<button class="btn btn-link">{{ language.name_local|capfirst }} ({{ language.code }})</button>
+		<button class="btn btn-link-settings btn-link">{{ language.name_local|capfirst }} ({{ language.code }})</button>
 		{% else %}
-		<button name="language" value="{{ language.code }}" class="btn btn-link">
+		<button name="language" value="{{ language.code }}" class="btn btn-link-settings btn-link">
 		  {{ language.name_local|capfirst }} ({{ language.code }})
 		</button>
 		{% endif %}

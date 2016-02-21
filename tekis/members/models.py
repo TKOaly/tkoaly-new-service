@@ -64,3 +64,26 @@ class TekisMember(models.Model):
 
     class Meta:
         managed = False
+        db_table = "users"
+
+
+def add_member(role):
+    from django.utils.timezone import now
+    # testing user creation
+    return TekisMember.objects.create(
+        username=role,
+        name=role,
+        screen_name=role,
+        email="%s@%s.fi" % (role, role),
+        residence="kerava",
+        phone=role,
+        hyy_member=True,
+        membership="jasen",
+        role=role,
+        created=now(),
+        modified=now(),
+        hashed_password='bf97b090e2ec03c39dd5e6cde5b48c3fc4b1bc87',
+        salt="abc",
+        tktl=True,
+        deleted=False
+    )

@@ -14,3 +14,10 @@
     padding-bottom: 3em;
     border-top: 10px solid #fc3;
 }
+
+.btn-link.btn-link-settings {
+    color: black;
+}
+.btn-link.btn-link-settings:hover {
+    color: silver;
+}
