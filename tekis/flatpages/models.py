@@ -20,28 +20,58 @@ MARKUP_CHOICES = markup.formatter.choices()
 class Flatpage(models.Model):
     menu_category = models.IntegerField(
         choices=settings.FLATPAGES_MENU_CATEGORIES,
-        default=settings.FLATPAGES_DEFAULT_MENU_CATEGORY
+        default=settings.FLATPAGES_DEFAULT_MENU_CATEGORY,
+        verbose_name=_("Menu category")
     )
-    menu_index = models.IntegerField(default=0, help_text=_("Menus are sorted ascending by this value. The first menu item in a category is the category link itself. <strong>Note:</strong> The first menu item in the top level category should be the front page."))
-    flatpage_type = models.IntegerField(choices=FLATPAGE_TYPE_CHOICES, default=PAGE)
-    published = models.BooleanField(default=False, help_text=_("Published pages show up on the menu. Unpublished pages can be reached over direct link."))
+    menu_index = models.IntegerField(
+        default=0,
+        help_text=_("Menus are sorted ascending by this value. The first menu item in a category is the category link itself. <strong>Note:</strong> The first menu item in the top level category should be the front page."),
+        verbose_name=_("Menu index")
+    )
+    flatpage_type = models.IntegerField(
+        choices=FLATPAGE_TYPE_CHOICES,
+        default=PAGE,
+        verbose_name=_("Flatpage type")
+    )
+    published = models.BooleanField(
+        default=False,
+        help_text=_("Published pages show up on the menu. Unpublished pages can be reached over direct link."),
+        verbose_name=_("Published")
+    )
 
     def __unicode__(self):
         return self.localflatpage_set.first().title
 
+    class Meta:
+        verbose_name = _("Flatpage")
+        verbose_name_plural = _("Flatpages")
+
 class LocalFlatpage(models.Model):
     flatpage = models.ForeignKey(Flatpage)
-    language = models.CharField(max_length=5, choices=settings.LANGUAGES)
-    url = models.CharField(max_length=100, db_index=True, blank=True)
-    title = models.CharField(max_length=100)
+    language = models.CharField(
+        max_length=5,
+        choices=settings.LANGUAGES,
+        verbose_name=_("Language")
+    )
+    url = models.CharField(
+        max_length=100,
+        db_index=True,
+        blank=True,
+        verbose_name=_("URL"),
+        help_text=_("The page is accessible on this path. Even external links have one.")
+    )
+    title = models.CharField(max_length=100, verbose_name=_("Title"))
     menu_title = models.CharField(
         max_length=40,
+        verbose_name=_("Menu Title"),
         help_text=_("Shorter title that fits in menu elements")
     )
     content = models.TextField(
+        verbose_name=_("Content"),
         help_text=_("Body text for pages, URL for direct links")
     )
     content_markup = models.CharField(
+        verbose_name=_("Content markup"),
         max_length=20,
         choices=MARKUP_CHOICES,
         default=MARKUP_CHOICES[0][0]
@@ -61,16 +91,27 @@ class LocalFlatpage(models.Model):
 
 
     class Meta:
+        verbose_name = _("Local Flatpage")
+        verbose_name_plural = _("Local Flatpages")
         unique_together = (('flatpage', 'language'), ('url', 'language'))
         ordering = ('language', 'flatpage__menu_index', 'title')
 
 
 class Sponsor(models.Model):
-    name = models.CharField(max_length=100)
-    url = models.URLField()
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("Name")
+    )
+    url = models.URLField(verbose_name=_("URL"))
     logo = models.ImageField(upload_to="sponsors/")
-    titletext = models.CharField(max_length=255, blank=True)
-    is_active = models.BooleanField(default=True)
+    titletext = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name=_("Title text")
+    )
+    is_active = models.BooleanField(default=True, verbose_name=_("Is active"))
 
     class Meta:
+        verbose_name = _("Sponsor")
+        verbose_name_plural = _("Sponsors")
         ordering = ('name',)

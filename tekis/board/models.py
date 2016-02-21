@@ -12,6 +12,8 @@ class Board(models.Model):
     class Meta:
         ordering = ("year",)
         get_latest_by = "year"
+        verbose_name = _("Board")
+        verbose_name_plural = _("Boards")
 
 
 ROLE_CHOICES = (
@@ -34,10 +36,12 @@ ROLE_CHOICES = (
 
 class BoardMember(models.Model):
     board = models.ForeignKey(Board)
-    name = models.CharField(max_length=100)
-    face = models.ImageField(upload_to="board_faces/%Y/")
-    role = models.IntegerField(choices=ROLE_CHOICES)
-    contact = models.CharField(max_length=100, default=_("firstname.lastname(at)cs.helsinki.fi"))
+    name = models.CharField(max_length=100, verbose_name=_("Name"))
+    face = models.ImageField(upload_to="board_faces/%Y/", verbose_name=_("Mugshot"))
+    role = models.IntegerField(choices=ROLE_CHOICES, verbose_name=_("Role"))
+    contact = models.CharField(max_length=100, default=_("firstname.lastname(at)cs.helsinki.fi"), verbose_name=_("Contact"))
 
     class Meta:
         ordering = ("role",)
+        verbose_name = _("Board Member")
+        verbose_name_plural = _("Board Members")

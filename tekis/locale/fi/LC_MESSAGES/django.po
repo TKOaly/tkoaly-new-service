@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-21 13:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: tekis/board/models.py:15 tekis/templates/base.html.py:14
+msgid "Board"
+msgstr "Hallitus"
+
+#: tekis/board/models.py:16
+msgid "Boards"
+msgstr "Hallituksia"
+
+#: tekis/board/models.py:20 tekis/templates/base.html.py:73
+msgid "Chairman"
+msgstr "Puheenjohtaja"
+
+#: tekis/board/models.py:21
+msgid "Treasurer"
+msgstr "Rahastonhoitaja"
+
+#: tekis/board/models.py:22
+msgid "Secretary"
+msgstr "Sihteeri"
+
+#: tekis/board/models.py:23
+msgid "Vice chairman"
+msgstr "Varapuheenjohtaja"
+
+#: tekis/board/models.py:24 tekis/board/models.py:46
+msgid "Board Member"
+msgstr "Hallituksen jäsen"
+
+#: tekis/board/models.py:25
+msgid "Study affairs"
+msgstr "Opintoasiat"
+
+#: tekis/board/models.py:26
+msgid "Communications"
+msgstr "Tiedotus"
+
+#: tekis/board/models.py:27
+msgid "Corporate affairs"
+msgstr "Yritysasiat"
+
+#: tekis/board/models.py:28
+msgid "RV affairs"
+msgstr "RV-asiat"
+
+#: tekis/board/models.py:29
+msgid "Freshman affairs"
+msgstr "Fuksiasiat"
+
+#: tekis/board/models.py:30
+msgid "First deputy board member"
+msgstr "1. varajäsen"
+
+#: tekis/board/models.py:31
+msgid "Second deputy board member"
+msgstr "2. varajäsen"
+
+#: tekis/board/models.py:32
+msgid "Third deputy board member"
+msgstr "3. varajäsen"
+
+#: tekis/board/models.py:33
+msgid "Fourth deputy board member"
+msgstr "4. varajäsen"
+
+#: tekis/board/models.py:39 tekis/flatpages/models.py:103
+msgid "Name"
+msgstr "Nimi"
+
+#: tekis/board/models.py:40
+msgid "Mugshot"
+msgstr "Naama"
+
+#: tekis/board/models.py:41
+msgid "Role"
+msgstr "Rooli"
+
+#: tekis/board/models.py:42
+msgid "firstname.lastname(at)cs.helsinki.fi"
+msgstr "etunimi.sukunimi(at)cs.helsinki.fi"
+
+#: tekis/board/models.py:42
+msgid "Contact"
+msgstr "Yhteystiedot"
+
+#: tekis/board/models.py:47
+msgid "Board Members"
+msgstr "Hallituksen jäseniä"
+
+#: tekis/board/templates/board/board.html:7
+#, python-format
+msgid "Board %(year)s"
+msgstr "Hallitus %(year)s"
+
+#: tekis/board/templates/board/board.html:32
+#, python-format
+msgid "Officers %(year)s"
+msgstr "Virkailijat %(year)s"
+
+#: tekis/board/urls.py:10
+msgid "older"
+msgstr "aiemmat"
+
+#: tekis/flatpages/admin.py:20
+msgid "Advanced options"
+msgstr "Lisäasetukset"
+
+#: tekis/flatpages/models.py:13
+msgid "Page"
+msgstr "Sivu"
+
+#: tekis/flatpages/models.py:14
+msgid "Direct Link"
+msgstr "Suora Linkki"
+
+#: tekis/flatpages/models.py:24
+msgid "Menu category"
+msgstr "Valikkokategoria"
+
+#: tekis/flatpages/models.py:28
+msgid ""
+"Menus are sorted ascending by this value. The first menu item in a category "
+"is the category link itself. <strong>Note:</strong> The first menu item in "
+"the top level category should be the front page."
+msgstr ""
+"Valikot järjestetään nousevasti tämän arvon mukaan. Ensimmäinen sivu "
+"kategoriassa on kategorialinkki itse. <strong>Huom:</strong> Ylätason "
+"ensimmäinen sivu tulisi olla etusivu."
+
+#: tekis/flatpages/models.py:29
+msgid "Menu index"
+msgstr "Valikkoindeksi"
+
+#: tekis/flatpages/models.py:34
+msgid "Flatpage type"
+msgstr "Sisältösivun tyyppi"
+
+#: tekis/flatpages/models.py:38
+msgid ""
+"Published pages show up on the menu. Unpublished pages can be reached over "
+"direct link."
+msgstr ""
+"Julkaistut sivut näkyvät valikossa. Julkaisemattomia sivuja voi lukea "
+"suoralla linkillä."
+
+#: tekis/flatpages/models.py:39
+msgid "Published"
+msgstr "Julkaistu"
+
+#: tekis/flatpages/models.py:46
+msgid "Flatpage"
+msgstr "Sisältösivu"
+
+#: tekis/flatpages/models.py:47
+msgid "Flatpages"
+msgstr "Sisältösivuja"
+
+#: tekis/flatpages/models.py:54
+msgid "Language"
+msgstr "Kieli"
+
+#: tekis/flatpages/models.py:60 tekis/flatpages/models.py:105
+msgid "URL"
+msgstr "URL"
+
+#: tekis/flatpages/models.py:61
+msgid "The page is accessible on this path. Even external links have one."
+msgstr "Sivun voi lukea tästä polusta. Myös linkeillä on sisäinen URL."
+
+#: tekis/flatpages/models.py:63
+msgid "Title"
+msgstr "Otsikko"
+
+#: tekis/flatpages/models.py:66
+msgid "Menu Title"
+msgstr "Valikko-otsikko"
+
+#: tekis/flatpages/models.py:67
+msgid "Shorter title that fits in menu elements"
+msgstr "Lyhyempi otsikko joka mahtuu valikkoon"
+
+#: tekis/flatpages/models.py:70
+msgid "Content"
+msgstr "Sisältö"
+
+#: tekis/flatpages/models.py:71
+msgid "Body text for pages, URL for direct links"
+msgstr "Leipäteksti sivuille, kohde-URL linkeille"
+
+#: tekis/flatpages/models.py:74
+msgid "Content markup"
+msgstr "Sisällön merkintätapa"
+
+#: tekis/flatpages/models.py:94
+msgid "Local Flatpage"
+msgstr "Kotoistettu sisältösivu"
+
+#: tekis/flatpages/models.py:95
+msgid "Local Flatpages"
+msgstr "Kotoistettuja sisältösivuja"
+
+#: tekis/flatpages/models.py:110
+msgid "Title text"
+msgstr "Otsikkoteksti"
+
+#: tekis/flatpages/models.py:112
+msgid "Is active"
+msgstr "Aktiivinen"
+
+#: tekis/flatpages/models.py:115
+msgid "Sponsor"
+msgstr "Yhteistyökumppani"
+
+#: tekis/flatpages/models.py:116 tekis/templates/base.html.py:54
+msgid "Sponsors"
+msgstr "Yhteistyökumppanit"
+
+#: tekis/members/models.py:12 tekis/members/models.py:21
+msgid "Nothing"
+msgstr "Ei mitään"
+
+#: tekis/members/models.py:13
+msgid "Member officer"
+msgstr "Jäsenvirkailija"
+
+#: tekis/members/models.py:14 tekis/members/models.py:25
+msgid "Member"
+msgstr "Jäsen"
+
+#: tekis/members/models.py:15
+msgid "Officer"
+msgstr "Virkailija"
+
+#: tekis/members/models.py:16
+msgid "Administrator"
+msgstr "Ylläpitäjä"
+
+#: tekis/members/models.py:17
+msgid "Exam archive officer"
+msgstr "Tenttiarkistovirkailija"
+
+#: tekis/members/models.py:22
+msgid "Non-member"
+msgstr "Ei-jäsen"
+
+#: tekis/members/models.py:23
+msgid "Membership revoked"
+msgstr "Erotettu"
+
+#: tekis/members/models.py:24
+msgid "External member"
+msgstr "Ulkojäsen"
+
+#: tekis/members/models.py:26
+msgid "Sponsor member"
+msgstr "Tukijäsen"
+
+#: tekis/members/models.py:27
+msgid "Honor member"
+msgstr "Kunniajäsen"
+
+#: tekis/settings.py:79 tekis/templates/base.html.py:12
+msgid "Association"
+msgstr "Yhdistys"
+
+#: tekis/settings.py:80 tekis/templates/base.html.py:18
+msgid "Activities"
+msgstr "Toiminta"
+
+#: tekis/settings.py:81
+msgid "(Top level)"
+msgstr "(Ylin taso)"
+
+#: tekis/settings.py:130
+msgid "Finnish"
+msgstr "Suomi"
+
+#: tekis/settings.py:131
+msgid "English"
+msgstr "Englanti"
+
+#: tekis/templates/base.html:63
+msgid "Mail"
+msgstr "Posti"
+
+#: tekis/templates/base.html:67
+#| msgid "Company ID"
+msgid "Company ID (Y-tunnus)"
+msgstr "Y-tunnus"
+
+#: tekis/templates/base.html:71
+msgid "E-mail"
+msgstr "Sähköposti"
+
+#: tekis/templates/base.html:77
+msgid "Phone to student room Gurula"
+msgstr "Puhelin opiskelijahuone Gurulaan"
+
+#: tekis/templates/base.html:79
+msgid "Bank Accounts"
+msgstr "Pankkitilit"
+
+#: tekis/urls.py:27
+msgid "board"
+msgstr "hallitus"
