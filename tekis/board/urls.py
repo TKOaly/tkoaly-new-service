@@ -7,6 +7,6 @@ from tekis.flatpages.views import flatpage
 urlpatterns = [
     url(r"^$", board, name="board"),
     url(r"^(?P<year>\d{4})/$", board, name="board"),
-    url(r"^%s/$" % _("older"), flatpage,
+    url(_(r"^older/$"), flatpage,
         name="legacy-boards", kwargs={"url": "legacy-boards"}),
 ]

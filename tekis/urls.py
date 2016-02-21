@@ -29,9 +29,9 @@ def index(request):
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
-    url(r'^%s/' % _("board"), include('tekis.board.urls')),
-    url(r'^%s/$' % _("login"), login, name="login", ),
-    url(r'^%s/$' % _("logout"), logout, name="logout"),
+    url(_(r'^board/'), include('tekis.board.urls')),
+    url(_(r'^login/$'), login, name="login", ),
+    url(_(r'^logout/$'), logout, name="logout"),
     url(r'^$', index, name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     url(r'^(?P<url>.*)$', flatpage, name='flatpage'),

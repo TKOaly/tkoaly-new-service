@@ -2,6 +2,9 @@
     background: black;
     color: white;
 }
+#tekishero img {
+    margin: 20px;
+}
 
 #sponsor-bag {
     background: white;
@@ -15,9 +18,6 @@
     border-top: 10px solid #fc3;
 }
 
-.btn-link.btn-link-settings {
-    color: black;
-}
-.btn-link.btn-link-settings:hover {
-    color: silver;
+.always-dark {
+    background: #222;
 }

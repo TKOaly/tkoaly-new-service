@@ -47,7 +47,7 @@
 	</li>
 	{% menu_for_category 0 %}
       </ul>
-      <form action="{% url 'set_language' %}" method="post" class="navbar-form">
+      <form action="{% url 'set_language' %}" method="post">
 	{% csrf_token %}
       <ul class="nav navbar-nav navbar-right">
 	<li>
@@ -71,10 +71,9 @@
 	      <li><a href="{% url "login" %}">{% trans "Member login" %}</a></li>
 	      <li><a href="http://members.tko-aly.fi/users/add">{% trans "Become a Member" %}</a></li>
 	      {% endif %}
-	      <li class="divider" role="separator"></li>
-	      <li class="dropdown-header">{% trans "Select Language" %}</li>
+	      <li class="dropdown-header always-dark">{% trans "Select Language" %}</li>
 	      {% for language in languages %}
-	      <li>
+	      <li class="always-dark">
 		{% if language.code == LANGUAGE_CODE %}
 		<button class="btn btn-link-settings btn-link">{{ language.name_local|capfirst }} ({{ language.code }})</button>
 		{% else %}
