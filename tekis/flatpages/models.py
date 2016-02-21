@@ -18,10 +18,11 @@ FLATPAGE_TYPE_CHOICES = (
 
 MARKUP_CHOICES = markup.formatter.choices()
 
+MENU_CATEGORIES = [(k, _(v)) for k,v in settings.FLATPAGES_MENU_CATEGORIES]
 
 class Flatpage(models.Model):
     menu_category = models.IntegerField(
-        choices=settings.FLATPAGES_MENU_CATEGORIES,
+        choices=MENU_CATEGORIES,
         default=settings.FLATPAGES_DEFAULT_MENU_CATEGORY,
         verbose_name=_("Menu category")
     )

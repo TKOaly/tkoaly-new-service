@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-21 19:01+0200\n"
+"POT-Creation-Date: 2016-02-21 20:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,90 +26,90 @@ msgstr "Hallitus"
 msgid "Boards"
 msgstr "Hallituksia"
 
-#: tekis/board/models.py:20 tekis/templates/base.html.py:125
-msgid "Chairman"
-msgstr "Puheenjohtaja"
-
-#: tekis/board/models.py:21
-msgid "Treasurer"
-msgstr "Rahastonhoitaja"
-
-#: tekis/board/models.py:22
-msgid "Secretary"
-msgstr "Sihteeri"
-
-#: tekis/board/models.py:23
-msgid "Vice chairman"
-msgstr "Varapuheenjohtaja"
-
-#: tekis/board/models.py:24 tekis/board/models.py:46
-msgid "Board Member"
-msgstr "Hallituksen jäsen"
-
-#: tekis/board/models.py:25
-msgid "Study affairs"
-msgstr "Opintoasiat"
-
-#: tekis/board/models.py:26
-msgid "Communications"
-msgstr "Tiedotus"
-
-#: tekis/board/models.py:27
-msgid "Corporate affairs"
-msgstr "Yritysasiat"
-
-#: tekis/board/models.py:28
-msgid "RV affairs"
-msgstr "RV-asiat"
-
-#: tekis/board/models.py:29
-msgid "Freshman affairs"
-msgstr "Fuksiasiat"
-
-#: tekis/board/models.py:30
-msgid "First deputy board member"
-msgstr "1. varajäsen"
-
-#: tekis/board/models.py:31
-msgid "Second deputy board member"
-msgstr "2. varajäsen"
-
-#: tekis/board/models.py:32
-msgid "Third deputy board member"
-msgstr "3. varajäsen"
-
-#: tekis/board/models.py:33
-msgid "Fourth deputy board member"
-msgstr "4. varajäsen"
-
-#: tekis/board/models.py:39 tekis/flatpages/models.py:109
-msgid "Name"
-msgstr "Nimi"
-
-#: tekis/board/models.py:40
-msgid "Mugshot"
-msgstr "Naama"
-
-#: tekis/board/models.py:41
-msgid "Role"
-msgstr "Rooli"
-
-#: tekis/board/models.py:42
-msgid "firstname.lastname(at)cs.helsinki.fi"
-msgstr "etunimi.sukunimi(at)cs.helsinki.fi"
-
-#: tekis/board/models.py:42
-msgid "Contact"
-msgstr "Yhteystiedot"
-
-#: tekis/board/models.py:47
-msgid "Board Members"
-msgstr "Hallituksen jäseniä"
-
-#: tekis/board/templates/board/board.html:7
+#: tekis/board/models.py:19 tekis/board/templates/board/board.html.py:7
 #, python-format
 msgid "Board %(year)s"
 msgstr "Hallitus %(year)s"
+
+#: tekis/board/models.py:22 tekis/templates/base.html.py:125
+msgid "Chairman"
+msgstr "Puheenjohtaja"
+
+#: tekis/board/models.py:23
+msgid "Treasurer"
+msgstr "Rahastonhoitaja"
+
+#: tekis/board/models.py:24
+msgid "Secretary"
+msgstr "Sihteeri"
+
+#: tekis/board/models.py:25
+msgid "Vice chairman"
+msgstr "Varapuheenjohtaja"
+
+#: tekis/board/models.py:26 tekis/board/models.py:51
+msgid "Board Member"
+msgstr "Hallituksen jäsen"
+
+#: tekis/board/models.py:27
+msgid "Study affairs"
+msgstr "Opintoasiat"
+
+#: tekis/board/models.py:28
+msgid "Communications"
+msgstr "Tiedotus"
+
+#: tekis/board/models.py:29
+msgid "Corporate affairs"
+msgstr "Yritysasiat"
+
+#: tekis/board/models.py:30
+msgid "RV affairs"
+msgstr "RV-asiat"
+
+#: tekis/board/models.py:31
+msgid "Freshman affairs"
+msgstr "Fuksiasiat"
+
+#: tekis/board/models.py:32
+msgid "First deputy board member"
+msgstr "1. varajäsen"
+
+#: tekis/board/models.py:33
+msgid "Second deputy board member"
+msgstr "2. varajäsen"
+
+#: tekis/board/models.py:34
+msgid "Third deputy board member"
+msgstr "3. varajäsen"
+
+#: tekis/board/models.py:35
+msgid "Fourth deputy board member"
+msgstr "4. varajäsen"
+
+#: tekis/board/models.py:41 tekis/flatpages/models.py:110
+msgid "Name"
+msgstr "Nimi"
+
+#: tekis/board/models.py:42
+msgid "Mugshot"
+msgstr "Naama"
+
+#: tekis/board/models.py:43
+msgid "Role"
+msgstr "Rooli"
+
+#: tekis/board/models.py:44
+msgid "firstname.lastname(at)cs.helsinki.fi"
+msgstr "etunimi.sukunimi(at)cs.helsinki.fi"
+
+#: tekis/board/models.py:44
+msgid "Contact"
+msgstr "Yhteystiedot"
+
+#: tekis/board/models.py:52
+msgid "Board Members"
+msgstr "Hallituksen jäseniä"
 
 #: tekis/board/templates/board/board.html:10
 msgid "Past boards"
@@ -128,6 +128,10 @@ msgstr "^aiemmat/$"
 msgid "Advanced options"
 msgstr "Lisäasetukset"
 
+#: tekis/flatpages/admin.py:61
+msgid "Available languages"
+msgstr "Kielet"
+
 #: tekis/flatpages/models.py:13
 msgid "Page"
 msgstr "Sivu"
@@ -144,11 +148,11 @@ msgstr "Suora Linkki"
 msgid "Direct Link with menu separator"
 msgstr "Linkki jolla on valikkoerotin"
 
-#: tekis/flatpages/models.py:26
+#: tekis/flatpages/models.py:27
 msgid "Menu category"
 msgstr "Valikkokategoria"
 
-#: tekis/flatpages/models.py:30
+#: tekis/flatpages/models.py:31
 msgid ""
 "Menus are sorted ascending by this value. The first menu item in a category "
 "is the category link itself. <strong>Note:</strong> The first menu item in "
@@ -158,15 +162,15 @@ msgstr ""
 "kategoriassa on kategorialinkki itse. <strong>Huom:</strong> Ylätason "
 "ensimmäinen sivu tulisi olla etusivu."
 
-#: tekis/flatpages/models.py:31
+#: tekis/flatpages/models.py:32
 msgid "Menu index"
 msgstr "Valikkoindeksi"
 
-#: tekis/flatpages/models.py:36
+#: tekis/flatpages/models.py:37
 msgid "Flatpage type"
 msgstr "Sisältösivun tyyppi"
 
-#: tekis/flatpages/models.py:40
+#: tekis/flatpages/models.py:41
 msgid ""
 "Published pages show up on the menu. Unpublished pages can be reached over "
 "direct link."
@@ -174,75 +178,75 @@ msgstr ""
 "Julkaistut sivut näkyvät valikossa. Julkaisemattomia sivuja voi lukea "
 "suoralla linkillä."
 
-#: tekis/flatpages/models.py:41
+#: tekis/flatpages/models.py:42
 msgid "Published"
 msgstr "Julkaistu"
 
-#: tekis/flatpages/models.py:48
+#: tekis/flatpages/models.py:49
 msgid "Flatpage"
 msgstr "Sisältösivu"
 
-#: tekis/flatpages/models.py:49
+#: tekis/flatpages/models.py:50
 msgid "Flatpages"
 msgstr "Sisältösivuja"
 
-#: tekis/flatpages/models.py:56
+#: tekis/flatpages/models.py:57
 msgid "Language"
 msgstr "Kieli"
 
-#: tekis/flatpages/models.py:62 tekis/flatpages/models.py:111
+#: tekis/flatpages/models.py:63 tekis/flatpages/models.py:112
 msgid "URL"
 msgstr "URL"
 
-#: tekis/flatpages/models.py:63
+#: tekis/flatpages/models.py:64
 msgid "The page is accessible on this path. Even external links have one."
 msgstr "Sivun voi lukea tästä polusta. Myös linkeillä on sisäinen URL."
 
-#: tekis/flatpages/models.py:65
+#: tekis/flatpages/models.py:66
 msgid "Title"
 msgstr "Otsikko"
 
-#: tekis/flatpages/models.py:69
+#: tekis/flatpages/models.py:70
 msgid "Menu Title"
 msgstr "Valikko-otsikko"
 
-#: tekis/flatpages/models.py:70
+#: tekis/flatpages/models.py:71
 msgid "Shorter title that fits in menu elements"
 msgstr "Lyhyempi otsikko joka mahtuu valikkoon"
 
-#: tekis/flatpages/models.py:73
+#: tekis/flatpages/models.py:74
 msgid "Content"
 msgstr "Sisältö"
 
-#: tekis/flatpages/models.py:74
+#: tekis/flatpages/models.py:75
 msgid "Body text for pages, URL for direct links"
 msgstr "Leipäteksti sivuille, kohde-URL linkeille"
 
-#: tekis/flatpages/models.py:77
+#: tekis/flatpages/models.py:78
 msgid "Content markup"
 msgstr "Sisällön merkintätapa"
 
-#: tekis/flatpages/models.py:100
+#: tekis/flatpages/models.py:101
 msgid "Local Flatpage"
 msgstr "Kotoistettu sisältösivu"
 
-#: tekis/flatpages/models.py:101
+#: tekis/flatpages/models.py:102
 msgid "Local Flatpages"
 msgstr "Kotoistettuja sisältösivuja"
 
-#: tekis/flatpages/models.py:116
+#: tekis/flatpages/models.py:117
 msgid "Title text"
 msgstr "Otsikkoteksti"
 
-#: tekis/flatpages/models.py:118
+#: tekis/flatpages/models.py:119
 msgid "Is active"
 msgstr "Aktiivinen"
 
-#: tekis/flatpages/models.py:121
+#: tekis/flatpages/models.py:122
 msgid "Sponsor"
 msgstr "Yhteistyökumppani"
 
-#: tekis/flatpages/models.py:122 tekis/templates/base.html.py:104
+#: tekis/flatpages/models.py:123 tekis/templates/base.html.py:104
 msgid "Sponsors"
 msgstr "Yhteistyökumppanit"
 

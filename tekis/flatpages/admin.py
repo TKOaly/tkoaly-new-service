@@ -52,6 +52,14 @@ class FlatpageAdmin(admin.ModelAdmin):
     inlines = [
         LocalFlatpageInline
     ]
+    list_display = ['__unicode__', 'menu_category',
+                    'flatpage_type', 'published',
+                    'available_languages']
+
+    def available_languages(self, obj):
+        return ",".join(obj.localflatpage_set.values_list("language", flat=True))
+    available_languages.short_description = _("Available languages")
+
 
 class SponsorAdmin(admin.ModelAdmin):
     pass

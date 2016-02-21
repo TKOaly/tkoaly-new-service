@@ -15,6 +15,8 @@ class Board(models.Model):
         verbose_name = _("Board")
         verbose_name_plural = _("Boards")
 
+    def __unicode__(self):
+        return _("Board %(year)s") % {"year": self.year}
 
 ROLE_CHOICES = (
     (0, _("Chairman")),
@@ -40,6 +42,9 @@ class BoardMember(models.Model):
     face = models.ImageField(upload_to="board_faces/%Y/", verbose_name=_("Mugshot"))
     role = models.IntegerField(choices=ROLE_CHOICES, verbose_name=_("Role"))
     contact = models.CharField(max_length=100, default=_("firstname.lastname(at)cs.helsinki.fi"), verbose_name=_("Contact"))
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         ordering = ("role",)
