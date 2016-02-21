@@ -22,9 +22,9 @@ class Flatpage(models.Model):
         choices=settings.FLATPAGES_MENU_CATEGORIES,
         default=settings.FLATPAGES_DEFAULT_MENU_CATEGORY
     )
-    menu_index = models.IntegerField(default=0)
+    menu_index = models.IntegerField(default=0, help_text=_("Menus are sorted ascending by this value. The first menu item in a category is the category link itself. <strong>Note:</strong> The first menu item in the top level category should be the front page."))
     flatpage_type = models.IntegerField(choices=FLATPAGE_TYPE_CHOICES, default=PAGE)
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(default=False, help_text=_("Published pages show up on the menu. Unpublished pages can be reached over direct link."))
 
     def __unicode__(self):
         return self.localflatpage_set.first().title
