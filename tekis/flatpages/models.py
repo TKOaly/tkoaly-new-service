@@ -118,6 +118,9 @@ class Sponsor(models.Model):
     )
     is_active = models.BooleanField(default=True, verbose_name=_("Is active"))
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         verbose_name = _("Sponsor")
         verbose_name_plural = _("Sponsors")
