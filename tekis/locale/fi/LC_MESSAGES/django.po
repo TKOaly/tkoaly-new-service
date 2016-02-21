@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-21 20:23+0200\n"
+"POT-Creation-Date: 2016-02-21 22:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,6 +378,17 @@ msgstr "Päätili"
 #: tekis/templates/base.html:133
 msgid "RV Account"
 msgstr "Ruokavälityksen tili"
+
+#: tekis/templates/base.html:139
+msgid "Content &copy; TKO-äly ry and contributors."
+msgstr "Sisältö &copy; TKO-äly ry ja kirjoittajat"
+
+#: tekis/templates/base.html:141
+#, python-format
+msgid ""
+"The website software is free software and <a href=\"%(source_link)s\">is "
+"available on Github.</a> Feel free to fork it for your own association!"
+msgstr "Sivuston ohjelmisto on ilmaista avoimen lähdekoodin ohjelmistoa, joka <a href=\"%(source_link)s\">on saatavilla Githubissa.</a> Muokkaa ihmeessä siitä kotisivu oman yhdistyksesi eduksi!"
 
 #: tekis/templates/index.html:13
 msgid "Association for Computer Science students in the University of Helsinki"

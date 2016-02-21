@@ -133,6 +133,14 @@
 	{% trans "RV Account" %} FI09 6601 0003 4225 40
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+	<p>{% trans "Content &copy; TKO-äly ry and contributors." %}</p>
+
+	<p>{% blocktrans with "https://github.com/hylje/tekis" as source_link %}The website software is free software and <a href="{{ source_link }}">is available on Github.</a> Feel free to fork it for your own association!{% endblocktrans %}</p>
+      </div>
+    </div>
     {% endblock %}
   </div>
 </div>
