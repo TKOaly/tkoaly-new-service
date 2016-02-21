@@ -6,6 +6,11 @@ organization. Integrates with existing account management.
 
 Uses Django 1.9.
 
+**Disclaimer**: This software is currently built with a branded theme
+  for TKO-äly ry. No permission to impersonate the association is
+  implied. Please replace the branding and contact information with
+  your own if you wish to publish this application.
+
 Members app
 -----------
 
