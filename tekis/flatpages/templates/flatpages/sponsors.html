@@ -1,0 +1,7 @@
+{% for sponsor in sponsors %}
+<a href="{{ sponsor.url }}" alt="{{ sponsor.name }}" title="{{ sponsor.titletext }}" target="_blank">
+  <img src="{{ sponsor.logo.url }}">
+</a>
+{% empty %}
+No sponsors yet!
+{% endfor %}

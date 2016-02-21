@@ -54,5 +54,8 @@ class FlatpageAdmin(admin.ModelAdmin):
         LocalFlatpageInline
     ]
 
+class SponsorAdmin(admin.ModelAdmin):
+    pass
 
 admin.site.register(models.Flatpage, FlatpageAdmin)
+admin.site.register(models.Sponsor, SponsorAdmin)

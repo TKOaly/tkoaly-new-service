@@ -63,3 +63,14 @@ class LocalFlatpage(models.Model):
     class Meta:
         unique_together = (('flatpage', 'language'), ('url', 'language'))
         ordering = ('language', 'flatpage__menu_index', 'title')
+
+
+class Sponsor(models.Model):
+    name = models.CharField(max_length=100)
+    url = models.URLField()
+    logo = models.ImageField(upload_to="sponsors/")
+    titletext = models.CharField(max_length=255, blank=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('name',)

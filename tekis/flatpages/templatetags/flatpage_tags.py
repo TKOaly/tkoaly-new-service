@@ -1,7 +1,7 @@
 from django import template
 from django.utils.translation import get_language
 
-from tekis.flatpages.models import LocalFlatpage
+from tekis.flatpages.models import LocalFlatpage, Sponsor
 
 register = template.Library()
 
@@ -40,3 +40,7 @@ def mainpage_link_for_category(category_id):
         return page.get_absolute_url()
     else:
         return "#no_page"
+
+@register.inclusion_tag("flatpages/sponsors.html")
+def show_sponsors():
+    return {"sponsors": Sponsor.objects.filter(is_active=True)}
