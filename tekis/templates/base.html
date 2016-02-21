@@ -2,83 +2,142 @@
 
 {% load i18n %}
 {% load flatpage_tags %}
+{% load staticfiles %}
 
-{% block header %}{% endblock %}
-<title>TKO-äly ry</title>
+<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+<link href="{% static "css/site.css" %}" rel="stylesheet">
+{% block extra_css %}{% endblock %}
+
+{% block header %}
+<title>TKO-äly ry {% block extra_title %}{% endblock %}</title>
+{% endblock %}
 
 {% block menu %}
-<div id="menu">
-  <ul>
-    <li><a href="{% mainpage_link_for_category 1 %}">{% trans "Association" %}</a>
-      <ul>
-	<li><a href="{% url "board" %}">{% trans "Board" %}</a></li>
-	{% menu_for_category 1 %}
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">TKO-äly ry</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+        <span class="sr-only">{% trans "Toggle navigation" %}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar">
+      <ul class="nav navbar-nav">
+	<li>
+	  <a href="{% mainpage_link_for_category 1 %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	    {% trans "Association" %}
+	    <span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+	    <li><a href="{% url "board" %}">{% trans "Board" %}</a></li>
+	    {% menu_for_category 1 %}
+	  </ul>
+	</li>
+	<li>
+	  <a href="{% mainpage_link_for_category 2 %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	    {% trans "Activities" %}
+	    <span class="caret"></span>
+	  </a>
+	  <ul class="dropdown-menu">
+	    {% menu_for_category 2 %}
+	  </ul>
+	</li>
+	{% menu_for_category 0 %}
       </ul>
-    </li>
-    <li><a href="{% mainpage_link_for_category 2 %}">{% trans "Activities" %}</a>
-      <ul>
-	{% menu_for_category 2 %}
+      <form action="{% url 'set_language' %}" method="post" class="navbar-form">
+	{% csrf_token %}
+      <ul class="nav navbar-nav navbar-right">
+	<li>
+	  {% get_current_language as LANGUAGE_CODE %}
+	  {% get_available_languages as LANGUAGES %}
+	  {% get_language_info_list for LANGUAGES as languages %}
+	    <input name="next" type="hidden" value="{{ redirect_to }}" />
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	      <span class="glyphicon glyphicon-cog" aria-label="{% trans "Options" %}"></span>
+	      <span class="caret"></span>
+	    </a>
+	    <ul class="dropdown-menu">
+	      {% if user.is_authenticated %}
+	      <li class="dropdown-header">{% blocktrans with user.first_name as name %}Hello, <strong>{{ name }}</strong>{% endblocktrans %}</li>
+	      {% if user.is_staff %}
+	      <li><a href="{% url "admin:index" %}">{% trans "Site Admin" %}</a></li>
+	      {% endif %}
+	      <li><a href="{% url "logout" %}">{% trans "Log out" %}</a></li>
+	      {% else %}
+	      <li class="dropdown-header">{% trans "Not logged in" %}</li>
+	      <li><a href="{% url "login" %}">{% trans "Member login" %}</a></li>
+	      <li><a href="http://members.tko-aly.fi/users/add">{% trans "Become a Member" %}</a></li>
+	      {% endif %}
+	      <li class="divider" role="separator"></li>
+	      <li class="dropdown-header">{% trans "Select Language" %}</li>
+	      {% for language in languages %}
+	      <li>
+		{% if language.code == LANGUAGE_CODE %}
+		<button class="btn btn-link">{{ language.name_local|capfirst }} ({{ language.code }})</button>
+		{% else %}
+		<button name="language" value="{{ language.code }}" class="btn btn-link">
+		  {{ language.name_local|capfirst }} ({{ language.code }})
+		</button>
+		{% endif %}
+	      </li>
+	      {% endfor %}
+	    </ul>
+	</li>
       </ul>
-    </li>
-    {% menu_for_category 0 %}
-  </ul>
-</div>
+      </form>
+    </div>
+  </div>
+</nav>
 {% endblock %}
-<div id="language_select">
 
-  <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
-    <input name="next" type="hidden" value="{{ redirect_to }}" />
-    <select name="language">
-      {% get_current_language as LANGUAGE_CODE %}
-      {% get_available_languages as LANGUAGES %}
-      {% get_language_info_list for LANGUAGES as languages %}
-      {% for language in languages %}
-      <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-        {{ language.name_local }} ({{ language.code }})
-      </option>
-      {% endfor %}
-    </select>
-    <input type="submit" value="Go" />
-  </form>
+<div class="container">
+  <div id="content">
+    {% block content %}{% endblock %}
+  </div>
 </div>
 
-<div id="content">
-  <a href="/">
-    <h1>TKO-äly ry</h1>
-  </a>
-  {% block content %}{% endblock %}
-</div>
 
-<hr>
-<div id="sponsor">
-  <h3>{% trans "Sponsors" %}</h3>
-
-  {% show_sponsors %}
-</div>
-
-<hr>
-{% block footer %}
 <div id="footer">
-<div class="section">
-<h3>{% trans "Mail" %}</h3>
-TKO-äly ry / TKTL<br>
-PL 68<br>
-00014 Helsingin yliopisto
-<h3>{% trans "Company ID (Y-tunnus)" %}</h3>
-1978827-2<br>
+  <div class="container" id="sponsor">
+    <h3>{% trans "Sponsors" %}</h3>
+
+    <div id="sponsor-bag">
+      {% show_sponsors %}
+    </div>
+  </div>
+
+  <div class="container" id="footer-container">
+    {% block footer %}
+    <div class="row">
+      <div class="col-md-4">
+	<h3>{% trans "Mail" %}</h3>
+	TKO-äly ry / TKTL<br>
+	PL 68<br>
+	00014 Helsingin yliopisto
+	<h3>{% trans "Company ID (Y-tunnus)" %}</h3>
+	1978827-2<br>
+      </div>
+      <div class="col-md-4">
+	<h3>{% trans "E-mail" %}</h3>
+	hallitus (ät) tko-aly.fi
+	<h3>{% trans "Chairman" %}</h3>
+	pj ät tko-aly.fi
+      </div>
+      <div class="col-md-4">
+	<h3>{% trans "Phone to student room Gurula" %}</h3>
+	+358-50-4480186
+	<h3>{% trans "Bank Accounts" %}</h3>
+	{% trans "Main Account" %} FI75 6601 0003 4225 16<br>
+	{% trans "RV Account" %} FI09 6601 0003 4225 40
+      </div>
+    </div>
+    {% endblock %}
+  </div>
 </div>
-<div class="section">
-<h3>{% trans "E-mail" %}</h3>
-hallitus (ät) tko-aly.fi
-<h3>{% trans "Chairman" %}</h3>
-pj ät tko-aly.fi
-</div>
-<div class="section">
-<h3>{% trans "Phone to student room Gurula" %}</h3>
-+358-50-4480186
-<h3>{% trans "Bank Accounts" %}</h3>
-Päätili FI75 6601 0003 4225 16<br>
-Ruokavälitys FI09 6601 0003 4225 40
-</div>
-</div>
-{% endblock %}
+
+<script src="{% static "js/jquery-1.12.0.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+{% block extra_js %}{% endblock %}

@@ -27,9 +27,10 @@ def flatpage(request, url):
                 right_page = page.get_other_lang(lang)
                 return redirect(right_page.get_absolute_url())
             except LocalFlatpage.DoesNotExist:
+                # use the content from the other language instead
                 pass
         else:
             # no such page whatsoever
             raise http.Http404("No such flatpage: lang=%r, url=%r" % (lang,url))
 
-    return render(request, 'flatpage.html', context={"page":page})
+    return render(request, "flatpage.html", context={"page":page})

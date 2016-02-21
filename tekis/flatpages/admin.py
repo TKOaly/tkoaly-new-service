@@ -11,7 +11,6 @@ class LocalFlatpageInline(admin.StackedInline):
 
     prepopulated_fields = {
         "url": ("title",),
-        "menu_title": ("title",)
     }
     fieldsets = (
         (None, {

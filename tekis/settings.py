@@ -100,7 +100,7 @@ DATABASES = {
 }
 DATABASE_ROUTERS = ['tekis.members.routers.MembersRouter']
 AUTHENTICATION_BACKENDS = ['tekis.members.backends.TekisAuthBackend']
-
+LOGIN_REDIRECT_URL = "/"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -144,5 +144,9 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "tekis", "public")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "tekis", "files")

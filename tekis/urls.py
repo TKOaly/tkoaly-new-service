@@ -18,13 +18,21 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.views import login, logout
+from django.shortcuts import render
 
 from tekis.flatpages.views import flatpage
+
+def index(request):
+    return render(request, "index.html")
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^%s/' % _("board"), include('tekis.board.urls')),
+    url(r'^%s/$' % _("login"), login, name="login", ),
+    url(r'^%s/$' % _("logout"), logout, name="logout"),
+    url(r'^$', index, name="index"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     url(r'^(?P<url>.*)$', flatpage, name='flatpage'),
 ]

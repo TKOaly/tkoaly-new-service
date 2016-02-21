@@ -1,7 +1,7 @@
 from django import template
 from django.utils.translation import get_language
 
-from tekis.flatpages.models import LocalFlatpage, Sponsor
+from tekis.flatpages.models import LocalFlatpage, Sponsor, PAGE
 
 register = template.Library()
 
@@ -44,3 +44,32 @@ def mainpage_link_for_category(category_id):
 @register.inclusion_tag("flatpages/sponsors.html")
 def show_sponsors():
     return {"sponsors": Sponsor.objects.filter(is_active=True)}
+
+@register.inclusion_tag("flatpage_embed.html")
+def embed_flatpage(url):
+    lang = get_language()
+
+    try:
+        page = LocalFlatpage.objects.get(
+            url=url,
+            language=lang,
+            flatpage__flatpage_type=PAGE
+        )
+    except LocalFlatpage.DoesNotExist:
+        # check if this page url exists in some other language
+        pages = LocalFlatpage.objects.filter(
+            url=url,
+            flatpage__flatpage_type=PAGE
+        )
+        if pages:
+            # it does
+            page = pages.first()
+            try:
+                page = page.get_other_lang(lang)
+            except LocalFlatpage.DoesNotExist:
+                # use the content from the other language instead
+                pass
+        else:
+            # no such page whatsoever
+            return {}
+    return {"page": page}

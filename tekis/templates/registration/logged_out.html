@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<p>{% trans "Logged out successfully. Thank you for spending time with us today!" %}</p>
+
+<p><a href="/">{% trans "Return to main page" %}</a></p>
+{% endblock %}

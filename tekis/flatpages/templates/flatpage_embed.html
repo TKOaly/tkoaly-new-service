@@ -1,0 +1,2 @@
+{% load markup_tags %}
+{% if page %}{{ page.content|apply_markup:page.content_markup }}{% endif %}

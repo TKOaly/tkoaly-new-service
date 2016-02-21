@@ -1,0 +1,16 @@
+#tekishero, #footer {
+    background: black;
+    color: white;
+}
+
+#sponsor-bag {
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#footer {
+    margin-top: 2em;
+    padding-bottom: 3em;
+    border-top: 10px solid #fc3;
+}

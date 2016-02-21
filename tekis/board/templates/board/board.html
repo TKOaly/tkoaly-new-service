@@ -7,7 +7,7 @@
 <h2>{% blocktrans %}Board {{ year }}{% endblocktrans %}</h2>
 
 <p>
-  <a href="{% url "legacy-boards" %}">Past boards</a>
+  <a href="{% url "legacy-boards" %}">{% trans "Past boards" %}</a>
   {% for other_year in other_years %}
   |
   {% if other_year == year %}<strong>{{ other_year }}</strong>
@@ -17,7 +17,7 @@
   {% endfor %}
 </p>
 
-<ul>
+<ul class="list-inline">
 {% for member in members %}
 <li>
   <img src="{{ member.face.url }}" alt="{{ member.name }}">

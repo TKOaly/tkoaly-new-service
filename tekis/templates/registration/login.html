@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Member login" %}</h2>
+
+<p>{% blocktrans with "https://members.tko-aly.fi/users/add" as register_link %}Not a member? <a href="{{ register_link }}">Register as a new member</a>{% endblocktrans %}</p>
+
+<form method="post" action="" class="form-horizontal">
+  {% csrf_token %}
+  {% for input in form %}
+  <div class="form-group">
+    <label for="{{ input.auto_id }}" class="col-sm-2 control-label">
+      {{ input.label }}
+    </label>
+    <div class="col-sm-10">
+      {{ input }}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="{% trans "Log in" %}">
+    </div>
+  </div>
+</form>
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 {% for page in pages %}
-{% if not forloop.first %}
-<li><a href="{{ page.get_absolute_url }}">{{ page.menu_title }}</a></li>
+{% if page.has_separator %}
+<li class="divider" role="separator"></li>
 {% endif %}
+<li><a href="{{ page.get_absolute_url }}">{{ page.menu_title|default:page.title }}</a></li>
 {% endfor %}
