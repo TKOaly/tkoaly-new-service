@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load markup_tags %}
+
+{% block content %}
+<h2>{% blocktrans %}Board {{ year }}{% endblocktrans %}</h2>
+
+<p>
+  <a href="{% url "legacy-boards" %}">Past boards</a>
+  {% for other_year in other_years %}
+  |
+  {% if other_year == year %}<strong>{{ other_year }}</strong>
+  {% else %}
+  <a href="{% url "board" other_year %}">{{ other_year }}</a>
+  {% endif %}
+  {% endfor %}
+</p>
+
+<ul>
+{% for member in members %}
+<li>
+  <img src="{{ member.face.url }}" alt="{{ member.name }}">
+  <h3>{{ member.name }}
+    <br><small>{{ member.get_role_display }}</small>
+  </h3>
+  <p>{{ member.contact }}</p>
+</li>
+{% endfor %}
+</ul>
+
+<h2>{% blocktrans %}Officers {{ year }}{% endblocktrans %}</h2>
+
+{{ officers|apply_markup:"textile" }}
+
+{% endblock %}
