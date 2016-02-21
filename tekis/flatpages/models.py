@@ -8,11 +8,12 @@ from django.core.urlresolvers import reverse
 
 from django_markup import markup
 
-PAGE, DIRECT_LINK, PAGE_SEPARATOR = range(3)
+PAGE, DIRECT_LINK, PAGE_SEPARATOR, LINK_SEPARATOR = range(4)
 FLATPAGE_TYPE_CHOICES = (
     (PAGE, _("Page")),
+    (PAGE_SEPARATOR, _("Page with menu separator")),
     (DIRECT_LINK, _("Direct Link")),
-    (PAGE_SEPARATOR, _("Page with menu separator"))
+    (LINK_SEPARATOR, _("Direct Link with menu separator"))
 )
 
 MARKUP_CHOICES = markup.formatter.choices()
@@ -80,7 +81,7 @@ class LocalFlatpage(models.Model):
     )
 
     def has_separator(self):
-        return self.flatpage.flatpage_type == PAGE_SEPARATOR
+        return self.flatpage.flatpage_type in (PAGE_SEPARATOR, LINK_SEPARATOR)
 
     def __unicode__(self):
         return self.title

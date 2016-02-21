@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-21 17:17+0200\n"
+"POT-Creation-Date: 2016-02-21 19:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,7 +82,7 @@ msgstr "3. varajäsen"
 msgid "Fourth deputy board member"
 msgstr "4. varajäsen"
 
-#: tekis/board/models.py:39 tekis/flatpages/models.py:108
+#: tekis/board/models.py:39 tekis/flatpages/models.py:109
 msgid "Name"
 msgstr "Nimi"
 
@@ -133,18 +133,22 @@ msgid "Page"
 msgstr "Sivu"
 
 #: tekis/flatpages/models.py:14
-msgid "Direct Link"
-msgstr "Suora Linkki"
-
-#: tekis/flatpages/models.py:15
 msgid "Page with menu separator"
 msgstr "Sivu jolla on valikkoerotin"
 
-#: tekis/flatpages/models.py:25
+#: tekis/flatpages/models.py:15
+msgid "Direct Link"
+msgstr "Suora Linkki"
+
+#: tekis/flatpages/models.py:16
+msgid "Direct Link with menu separator"
+msgstr "Linkki jolla on valikkoerotin"
+
+#: tekis/flatpages/models.py:26
 msgid "Menu category"
 msgstr "Valikkokategoria"
 
-#: tekis/flatpages/models.py:29
+#: tekis/flatpages/models.py:30
 msgid ""
 "Menus are sorted ascending by this value. The first menu item in a category "
 "is the category link itself. <strong>Note:</strong> The first menu item in "
@@ -154,15 +158,15 @@ msgstr ""
 "kategoriassa on kategorialinkki itse. <strong>Huom:</strong> Ylätason "
 "ensimmäinen sivu tulisi olla etusivu."
 
-#: tekis/flatpages/models.py:30
+#: tekis/flatpages/models.py:31
 msgid "Menu index"
 msgstr "Valikkoindeksi"
 
-#: tekis/flatpages/models.py:35
+#: tekis/flatpages/models.py:36
 msgid "Flatpage type"
 msgstr "Sisältösivun tyyppi"
 
-#: tekis/flatpages/models.py:39
+#: tekis/flatpages/models.py:40
 msgid ""
 "Published pages show up on the menu. Unpublished pages can be reached over "
 "direct link."
@@ -170,75 +174,75 @@ msgstr ""
 "Julkaistut sivut näkyvät valikossa. Julkaisemattomia sivuja voi lukea "
 "suoralla linkillä."
 
-#: tekis/flatpages/models.py:40
+#: tekis/flatpages/models.py:41
 msgid "Published"
 msgstr "Julkaistu"
 
-#: tekis/flatpages/models.py:47
+#: tekis/flatpages/models.py:48
 msgid "Flatpage"
 msgstr "Sisältösivu"
 
-#: tekis/flatpages/models.py:48
+#: tekis/flatpages/models.py:49
 msgid "Flatpages"
 msgstr "Sisältösivuja"
 
-#: tekis/flatpages/models.py:55
+#: tekis/flatpages/models.py:56
 msgid "Language"
 msgstr "Kieli"
 
-#: tekis/flatpages/models.py:61 tekis/flatpages/models.py:110
+#: tekis/flatpages/models.py:62 tekis/flatpages/models.py:111
 msgid "URL"
 msgstr "URL"
 
-#: tekis/flatpages/models.py:62
+#: tekis/flatpages/models.py:63
 msgid "The page is accessible on this path. Even external links have one."
 msgstr "Sivun voi lukea tästä polusta. Myös linkeillä on sisäinen URL."
 
-#: tekis/flatpages/models.py:64
+#: tekis/flatpages/models.py:65
 msgid "Title"
 msgstr "Otsikko"
 
-#: tekis/flatpages/models.py:68
+#: tekis/flatpages/models.py:69
 msgid "Menu Title"
 msgstr "Valikko-otsikko"
 
-#: tekis/flatpages/models.py:69
+#: tekis/flatpages/models.py:70
 msgid "Shorter title that fits in menu elements"
 msgstr "Lyhyempi otsikko joka mahtuu valikkoon"
 
-#: tekis/flatpages/models.py:72
+#: tekis/flatpages/models.py:73
 msgid "Content"
 msgstr "Sisältö"
 
-#: tekis/flatpages/models.py:73
+#: tekis/flatpages/models.py:74
 msgid "Body text for pages, URL for direct links"
 msgstr "Leipäteksti sivuille, kohde-URL linkeille"
 
-#: tekis/flatpages/models.py:76
+#: tekis/flatpages/models.py:77
 msgid "Content markup"
 msgstr "Sisällön merkintätapa"
 
-#: tekis/flatpages/models.py:99
+#: tekis/flatpages/models.py:100
 msgid "Local Flatpage"
 msgstr "Kotoistettu sisältösivu"
 
-#: tekis/flatpages/models.py:100
+#: tekis/flatpages/models.py:101
 msgid "Local Flatpages"
 msgstr "Kotoistettuja sisältösivuja"
 
-#: tekis/flatpages/models.py:115
+#: tekis/flatpages/models.py:116
 msgid "Title text"
 msgstr "Otsikkoteksti"
 
-#: tekis/flatpages/models.py:117
+#: tekis/flatpages/models.py:118
 msgid "Is active"
 msgstr "Aktiivinen"
 
-#: tekis/flatpages/models.py:120
+#: tekis/flatpages/models.py:121
 msgid "Sponsor"
 msgstr "Yhteistyökumppani"
 
-#: tekis/flatpages/models.py:121 tekis/templates/base.html.py:104
+#: tekis/flatpages/models.py:122 tekis/templates/base.html.py:104
 msgid "Sponsors"
 msgstr "Yhteistyökumppanit"
 
