@@ -64,5 +64,9 @@ class FlatpageAdmin(admin.ModelAdmin):
 class SponsorAdmin(admin.ModelAdmin):
     pass
 
+class ContentImageAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(models.Flatpage, FlatpageAdmin)
 admin.site.register(models.Sponsor, SponsorAdmin)
+admin.site.register(models.ContentImage, ContentImageAdmin)

@@ -8,6 +8,11 @@ from django.core.urlresolvers import reverse
 
 from django_markup import markup
 
+from easy_thumbnails.signals import saved_file
+from easy_thumbnails.signal_handlers import generate_aliases_global
+from easy_thumbnails.fields import ThumbnailerImageField
+
+
 PAGE, DIRECT_LINK, PAGE_SEPARATOR, LINK_SEPARATOR = range(4)
 FLATPAGE_TYPE_CHOICES = (
     (PAGE, _("Page")),
@@ -125,3 +130,42 @@ class Sponsor(models.Model):
         verbose_name = _("Sponsor")
         verbose_name_plural = _("Sponsors")
         ordering = ('name',)
+
+
+class ContentImage(models.Model):
+    name = models.CharField(max_length=100, verbose_name=_("Name"))
+    image = ThumbnailerImageField(
+        upload_to='content_images/',
+        blank=True,
+        verbose_name=_("Image")
+    )
+
+    def __unicode__(self):
+        return self.name
+
+    def get_thumbnail_list(self):
+        ret = []
+        for alias_name, alias_opts in settings.THUMBNAIL_ALIASES[""].iteritems():
+            thumbinfo = {
+                "name": _(alias_name),
+                "url": self.image[alias_name].url,
+            }
+
+            if "size" in alias_opts:
+                thumbinfo.update({
+                    "size_x": alias_opts["size"][0],
+                    "size_y": alias_opts["size"][1],
+                })
+
+            ret.append(thumbinfo)
+        return ret
+
+
+    class Meta:
+        verbose_name = _("content image")
+        verbose_name_plural = _("content images")
+        ordering = ('name',)
+
+
+
+saved_file.connect(generate_aliases_global)

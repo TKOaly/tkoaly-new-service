@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     # third party apps
     'django_markup',
+    'easy_thumbnails',
 
     # first party apps
     'tekis.flatpages',
@@ -150,3 +151,12 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "public", "files")
+
+# Thumbnail shapes
+# https://github.com/SmileyChris/easy-thumbnails/blob/master/docs/usage.rst
+THUMBNAIL_ALIASES = {
+    '': {
+        _('small'): {'size': (250, 250)},
+        _('banner'): {'size': (960, 350), 'crop': "smart"}
+    },
+}

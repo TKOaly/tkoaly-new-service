@@ -1,0 +1,22 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n %}
+
+{% block after_field_sets %}
+{% trans "Thumbnail Textiles:" %}
+<table>
+  <tr>
+    <th>{% trans "Name" %}</th>
+    <th>{% trans "Size" %}</th>
+    <th>{% trans "Textile Snippet" %}</th>
+  </tr>
+  {% for thumb in original.get_thumbnail_list %}
+  <tr>
+    <td><strong>{{ thumb.name }}</strong></td>
+    <td>{{ thumb.size_x }}px × {{ thumb.size_y }}px</td>
+    <td><tt>!{{ thumb.url }}!:{{ original.image.url }}</tt></td>
+  </tr>
+  {% if not forloop.last %},{% endif %}
+  {% endfor %}
+</table>
+{% endblock %}
