@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 18:25+0200\n"
+"POT-Creation-Date: 2016-02-22 19:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,6 +89,7 @@ msgstr "4. varajäsen"
 
 #: tekis/board/models.py:41 tekis/flatpages/models.py:115
 #: tekis/flatpages/models.py:136
+#: tekis/templates/admin/flatpages/change_form.html:9
 msgid "Name"
 msgstr "Nimi"
 
@@ -255,11 +256,11 @@ msgstr "Yhteistyökumppanit"
 msgid "Image"
 msgstr "Kuva"
 
-#: tekis/flatpages/models.py:154
+#: tekis/flatpages/models.py:165
 msgid "content image"
 msgstr "kuvituskuva"
 
-#: tekis/flatpages/models.py:155
+#: tekis/flatpages/models.py:166
 msgid "content images"
 msgstr "kuvituskuvia"
 
@@ -335,9 +336,17 @@ msgstr "pieni"
 msgid "banner"
 msgstr "banneri"
 
-#: tekis/templates/admin/flatpages/change_form.html:7
-msgid "Thumbnails:"
-msgstr "Pikkukuvat:"
+#: tekis/templates/admin/flatpages/change_form.html:6
+msgid "Thumbnail Textiles"
+msgstr "Pikkukuva-Textilejä"
+
+#: tekis/templates/admin/flatpages/change_form.html:10
+msgid "Size"
+msgstr "Koko"
+
+#: tekis/templates/admin/flatpages/change_form.html:11
+msgid "Textile Snippet"
+msgstr "Textile-leike"
 
 #: tekis/templates/base.html:23
 msgid "Toggle navigation"
