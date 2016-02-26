@@ -67,6 +67,12 @@ class SponsorAdmin(admin.ModelAdmin):
 class ContentImageAdmin(admin.ModelAdmin):
     pass
 
+class DownloadAdmin(admin.ModelAdmin):
+    list_display = [
+        '__unicode__', 'size'
+    ]
+
 admin.site.register(models.Flatpage, FlatpageAdmin)
 admin.site.register(models.Sponsor, SponsorAdmin)
 admin.site.register(models.ContentImage, ContentImageAdmin)
+admin.site.register(models.Download, DownloadAdmin)

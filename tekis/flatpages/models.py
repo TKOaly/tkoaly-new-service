@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
+import os.path
+
 from django.db import models
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-
 from django.core.urlresolvers import reverse
 
 from django_markup import markup
@@ -132,8 +133,22 @@ class Sponsor(models.Model):
         ordering = ('name',)
 
 
+def namefromfile(fieldfile):
+    "directories/<FILENAME>.ext -> <FILENAME>"
+
+    filename = fieldfile.name
+    _path, filename = os.path.split(filename)
+    filename, _ext = os.path.splitext(filename)
+
+    return filename
+
+
 class ContentImage(models.Model):
-    name = models.CharField(max_length=100, verbose_name=_("Name"))
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("Name"),
+        blank=True
+    )
     image = ThumbnailerImageField(
         upload_to='content_images/',
         blank=True,
@@ -142,6 +157,12 @@ class ContentImage(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def save(self, **kwargs):
+        if not self.name:
+            self.name = namefromfile(self.image)
+
+        super(ContentImage, self).save(**kwargs)
 
     def get_thumbnail_list(self):
         ret = []
@@ -167,5 +188,35 @@ class ContentImage(models.Model):
         ordering = ('name',)
 
 
+class Download(models.Model):
+    name = models.CharField(
+        max_length=100,
+        verbose_name=_("Name"),
+        blank=True
+    )
+    size = models.IntegerField(
+        editable=False,
+        verbose_name=_("Size")
+    )
+    uploaded_file = models.FileField(
+        upload_to="download/",
+        verbose_name=_("File")
+    )
+
+    def __unicode__(self):
+        return self.name
+
+    def save(self, **kwargs):
+        if not self.name:
+            self.name = namefromfile(self.uploaded_file)
+        if not self.size:
+            self.size = self.uploaded_file.size
+
+        super(Download, self).save(**kwargs)
+
+    class Meta:
+        verbose_name = _("download")
+        verbose_name_plural = _("downloads")
+        ordering = ('name',)
 
 saved_file.connect(generate_aliases_global)

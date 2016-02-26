@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% block after_field_sets %}
+{% if original %}
 <h2>{% trans "Thumbnail Textiles" %}</h2>
 <table>
   <tr>
@@ -19,4 +20,5 @@
   {% if not forloop.last %},{% endif %}
   {% endfor %}
 </table>
+{% endif %}
 {% endblock %}

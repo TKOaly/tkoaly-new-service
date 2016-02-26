@@ -1,0 +1,13 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n %}
+
+{% block after_field_sets %}
+{% if original %}
+<h2>{% trans "Textile Snippet" %}</h2>
+<p>
+  <tt>"{{ original.name }} [{{ original.size|filesizeformat }}]":{{ original.uploaded_file.url }}</tt>
+</p>
+
+{% endif %}
+{% endblock %}
