@@ -33,9 +33,9 @@ INSTALLED_APPS = [
     'easy_thumbnails',
 
     # first party apps
-    'tekis.flatpages',
+    'tekis.flatpages.apps.FlatpagesConfig',
     'tekis.members',
-    'tekis.board',
+    'tekis.board.apps.BoardConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
