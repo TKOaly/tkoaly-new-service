@@ -4,9 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 
-VERBOSE_NAME = _('Board')
-
-
 class Board(models.Model):
     year = models.IntegerField()
 

@@ -14,9 +14,6 @@ from easy_thumbnails.signal_handlers import generate_aliases_global
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
-VERBOSE_NAME = _('Flatpages')
-
-
 PAGE, DIRECT_LINK, PAGE_SEPARATOR, LINK_SEPARATOR = range(4)
 FLATPAGE_TYPE_CHOICES = (
     (PAGE, _("Page")),
