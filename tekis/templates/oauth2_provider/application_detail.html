@@ -1,0 +1,42 @@
+{% extends "oauth2_provider/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>{% blocktrans with name=application.name %}OAuth Application: {{ name }}{% endblocktrans %}</h2>
+
+
+  <p>
+    {% blocktrans %}If you lose the secret, please delete and recreate
+    the app.{% endblocktrans %}
+  </p>
+
+  <p>
+    <strong>{% trans "Client ID:" %}</strong> <tt>{{ application.client_id }}</tt>
+  </p>
+
+  <p>
+    <strong>{% trans "Client Secret:" %}</strong>
+    <div>
+      <textarea rows="3" cols="60" disabled="disabled">{{ application.client_secret }}</textarea>
+    </div>
+  </p>
+
+  <p>
+    <strong>{% trans "Client type:" %}</strong>
+    <tt>{{ application.client_type }}</tt>
+  </p>
+
+<p>
+  <strong>{% trans "Authorization Grant Type:" %}</strong>
+  <tt>{{ application.authorization_grant_type }}</tt>
+</p>
+
+
+<div class="btn-toolbar">
+  <a class="btn" href="{% url "oauth2_provider:list" %}">{% trans "Go Back" %}</a>
+  <a class="btn btn-primary" href="{% url "oauth2_provider:update" application.id %}">{% trans "Edit" %}</a>
+  <a class="btn btn-danger" href="{% url "oauth2_provider:delete" application.id %}">{% trans "Delete" %}</a>
+</div>
+
+{% endblock %}

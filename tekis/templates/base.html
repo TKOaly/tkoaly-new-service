@@ -11,14 +11,14 @@
 {% block extra_css %}{% endblock %}
 
 {% block header %}
-<title>TKO-äly ry {% block extra_title %}{% endblock %}</title>
+<title>{{ SITE_NAME }} {% block extra_title %}{% endblock %}</title>
 {% endblock %}
 
 {% block menu %}
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">TKO-äly ry</a>
+      <a class="navbar-brand" href="/">{{ SITE_NAME }}</a>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
         <span class="sr-only">{% trans "Toggle navigation" %}</span>
         <span class="icon-bar"></span>
@@ -67,6 +67,7 @@
 	      {% if user.is_staff %}
 	      <li><a href="{% url "admin:index" %}">{% trans "Site Admin" %}</a></li>
 	      {% endif %}
+	      <li><a href="{% url "oauth2_provider:index" %}">{% trans "Single Sign On" %}</a></li>
 	      <li><a href="{% url "logout" %}">{% trans "Log out" %}</a></li>
 	      {% else %}
 	      <li class="dropdown-header">{% trans "Not logged in" %}</li>
@@ -138,7 +139,7 @@
     <hr>
     <div class="row">
       <div class="col-md-4">
-	<p>{% trans "Content &copy; TKO-äly ry and contributors." %}</p>
+	<p>{% blocktrans %}Content &copy; {{ SITE_NAME }} and contributors.{% endblocktrans %}</p>
 
 	<p>{% blocktrans with "https://github.com/hylje/tekis" as source_link %}The website software is free software and <a href="{{ source_link }}">is available on Github.</a> Feel free to fork it for your own association!{% endblocktrans %}</p>
       </div>

@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 import os
 
 _ = lambda s: s
@@ -31,6 +33,8 @@ INSTALLED_APPS = [
     # third party apps
     'django_markup',
     'easy_thumbnails',
+    'oauth2_provider',
+    'corsheaders',
 
     # first party apps
     'tekis.flatpages.apps.FlatpagesConfig',
@@ -48,6 +52,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'tekis.urls'
@@ -63,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'tekis.context_processors.site',
             ],
         },
     },
@@ -102,6 +108,7 @@ DATABASES = {
 DATABASE_ROUTERS = ['tekis.members.routers.MembersRouter']
 AUTHENTICATION_BACKENDS = ['tekis.members.backends.TekisAuthBackend']
 LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/login/"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -160,3 +167,11 @@ THUMBNAIL_ALIASES = {
         _('banner'): {'size': (960, 350), 'crop': "smart"}
     },
 }
+
+# Cross Origin Resource Sharing headers for all oauth endpoints allows
+# cross-origin POST requests
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
+
+SITE_NAME = "TKO-Äly ry"
+SITE_URL = "http://localhost:8000"

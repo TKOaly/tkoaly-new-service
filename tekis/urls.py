@@ -17,11 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
+from django.utils.translation import ugettext as _
 from django.contrib.auth.views import login, logout
 from django.shortcuts import render
 
 from tekis.flatpages.views import flatpage
+from tekis.members.api import MemberDetailsView
 
 def index(request):
     return render(request, "index.html")
@@ -29,10 +31,30 @@ def index(request):
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
-    url(_(r'^board/'), include('tekis.board.urls')),
-    url(_(r'^login/$'), login, name="login", ),
-    url(_(r'^logout/$'), logout, name="logout"),
+    url(r'^oauth/', include('tekis.oauth', namespace='oauth2_provider')),
+    url(r'^api/v1/', include([
+        url('^me/$', MemberDetailsView.as_view(), name="api-member"),
+    ])),
     url(r'^$', index, name="index"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
-    url(r'^(?P<url>.*)$', flatpage, name='flatpage'),
 ]
+
+# eagerly populate all localized urls to avoid awkward 404s on deeplinks
+cur_language = translation.get_language()
+try:
+    for lang_code, language in settings.LANGUAGES:
+        translation.activate(lang_code)
+        urlpatterns.extend([
+            url(_(r'^board/'), include('tekis.board.urls')),
+            url(_(r'^login/$'), login, name="login", ),
+            url(_(r'^logout/$'), logout, name="logout"),
+        ])
+finally:
+    translation.activate(cur_language)
+
+urlpatterns.extend(
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
+
+urlpatterns.extend([
+    url(r'^(?P<url>.*)$', flatpage, name='flatpage'),
+])

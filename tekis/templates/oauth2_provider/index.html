@@ -1,0 +1,65 @@
+{% extends "oauth2_provider/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Single Sign On" %}</h2>
+
+<p>{% blocktrans %}The {{ SITE_NAME }} single sign on service allows members to access association and affiliate services with a single login. You can manage your access or create your own services here.{% endblocktrans %}</p>
+
+<ul>
+  <li><a href="{% url "oauth2_provider:list" %}">{% trans "Applications" %}</a></li>
+  <li><a href="{% url "oauth2_provider:authorized-token-list" %}">{% trans "Access Tokens" %}</a></li>
+</ul>
+
+<h3>{% trans "API information" %}</h3>
+
+<p>{% blocktrans %}SSO is implemented using OAuth2.{% endblocktrans %}</p>
+
+<p>{% blocktrans %}To access authenticated APIs, a Bearer Token is preferred.{% endblocktrans %}
+
+<h4>HTTP Header:</h4>
+<pre>
+  Authorization: Bearer &lt;TOKEN-BLOB&gt;
+</pre>
+
+<h4>{% trans "Reference" %}</h4>
+
+<table class="table">
+  <tr>
+    <th>{% trans "Endpoint" %}</th>
+    <th>{% trans "URL" %}</th>
+    <th>{% trans "Description" %}</th>
+  </tr>
+  <tr>
+    <td>OAuth Authorize</td>
+    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:authorize' %}</tt></td>
+    <td>{% trans "Asks the user to authorize" %}</td>
+  </tr>
+  <tr>
+    <td>OAuth Token</td>
+    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:token' %}</tt></td>
+    <td>{% trans "Exchange grant for token" %}</td>
+  </tr>
+  <tr>
+    <td>OAuth Token Revoke</td>
+    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:revoke-token' %}</tt></td>
+    <td>{% trans "Revoke a token" %}</td>
+  </tr>
+  <tr>
+    <td>Member info</td>
+    <td><tt>{{ SITE_URL }}{% url 'api-member' %}</tt></td>
+    <td>
+      <p>{% trans "Exchange a token for user information as JSON." %}</p>
+<pre>{
+  "content": {
+    "username": "jouluporo"
+    "real_name": "Petteri Punakuono"
+    "role": "jasen"
+  }
+}</pre>
+      <p><tt>role</tt>: [<tt>"jasen"</tt>, <tt>"virkailija"</tt>, <tt>"yllapitaja"</tt>]</p>
+    </td>
+  </tr>
+</table>
+{% endblock %}

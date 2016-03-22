@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-26 19:50+0200\n"
+"POT-Creation-Date: 2016-03-22 19:43+0200\n"
 "PO-Revision-Date: 2016-02-26 19:25+0200\n"
 "Last-Translator: Leo Honkanen <leo.o.honkanen@gmail.com>\n"
 "Language-Team: TKO-äly ry admins <yllapito@tko-aly.fi>\n"
@@ -29,7 +29,7 @@ msgstr "Hallituksia"
 msgid "Board %(year)s"
 msgstr "Hallitus %(year)s"
 
-#: tekis/board/models.py:22 tekis/templates/base.html.py:127
+#: tekis/board/models.py:22 tekis/templates/base.html.py:128
 msgid "Chairman"
 msgstr "Puheenjohtaja"
 
@@ -195,6 +195,7 @@ msgid "Language"
 msgstr "Kieli"
 
 #: tekis/flatpages/models.py:69 tekis/flatpages/models.py:118
+#: tekis/templates/oauth2_provider/index.html:31
 msgid "URL"
 msgstr "URL"
 
@@ -246,7 +247,7 @@ msgstr "Aktiivinen"
 msgid "Sponsor"
 msgstr "Yhteistyökumppani"
 
-#: tekis/flatpages/models.py:132 tekis/templates/base.html.py:106
+#: tekis/flatpages/models.py:132 tekis/templates/base.html.py:107
 msgid "Sponsors"
 msgstr "Yhteistyökumppanit"
 
@@ -323,31 +324,31 @@ msgstr "Tukijäsen"
 msgid "Honor member"
 msgstr "Kunniajäsen"
 
-#: tekis/settings.py:80 tekis/templates/base.html.py:33
+#: tekis/settings.py:86 tekis/templates/base.html.py:33
 msgid "Association"
 msgstr "Yhdistys"
 
-#: tekis/settings.py:81 tekis/templates/base.html.py:43
+#: tekis/settings.py:87 tekis/templates/base.html.py:43
 msgid "Activities"
 msgstr "Toiminta"
 
-#: tekis/settings.py:82
+#: tekis/settings.py:88
 msgid "(Top level)"
 msgstr "(Ylin taso)"
 
-#: tekis/settings.py:131
+#: tekis/settings.py:138
 msgid "Finnish"
 msgstr "Suomi"
 
-#: tekis/settings.py:132
+#: tekis/settings.py:139
 msgid "English"
 msgstr "Englanti"
 
-#: tekis/settings.py:159
+#: tekis/settings.py:166
 msgid "small"
 msgstr "pieni"
 
-#: tekis/settings.py:160
+#: tekis/settings.py:167
 msgid "banner"
 msgstr "banneri"
 
@@ -377,59 +378,64 @@ msgstr "Hei, <strong>%(name)s</strong>"
 msgid "Site Admin"
 msgstr "Sivun ylläpito"
 
-#: tekis/templates/base.html:70
+#: tekis/templates/base.html:70 tekis/templates/oauth2_provider/index.html:6
+msgid "Single Sign On"
+msgstr "Kirjautumispalvelu (SSO)"
+
+#: tekis/templates/base.html:71
 msgid "Log out"
 msgstr "Kirjaudu ulos"
 
-#: tekis/templates/base.html:72
+#: tekis/templates/base.html:73
 msgid "Not logged in"
 msgstr "Ei kirjautuneena"
 
-#: tekis/templates/base.html:73 tekis/templates/registration/login.html.py:6
+#: tekis/templates/base.html:74 tekis/templates/registration/login.html.py:6
 msgid "Member login"
 msgstr "Jäsenten kirjautuminen"
 
-#: tekis/templates/base.html:74 tekis/templates/index.html.py:16
+#: tekis/templates/base.html:75 tekis/templates/index.html.py:16
 msgid "Become a Member"
 msgstr "Liity jäseneksi"
 
-#: tekis/templates/base.html:76
+#: tekis/templates/base.html:77
 msgid "Select Language"
 msgstr "Valitse Kieli"
 
-#: tekis/templates/base.html:117
+#: tekis/templates/base.html:118
 msgid "Mail"
 msgstr "Posti"
 
-#: tekis/templates/base.html:121
+#: tekis/templates/base.html:122
 msgid "Company ID (Y-tunnus)"
 msgstr "Y-tunnus"
 
-#: tekis/templates/base.html:125
+#: tekis/templates/base.html:126
 msgid "E-mail"
 msgstr "Sähköposti"
 
-#: tekis/templates/base.html:131
+#: tekis/templates/base.html:132
 msgid "Phone to student room Gurula"
 msgstr "Puhelin opiskelijahuone Gurulaan"
 
-#: tekis/templates/base.html:133
+#: tekis/templates/base.html:134
 msgid "Bank Accounts"
 msgstr "Pankkitilit"
 
-#: tekis/templates/base.html:134
+#: tekis/templates/base.html:135
 msgid "Main Account"
 msgstr "Päätili"
 
-#: tekis/templates/base.html:135
+#: tekis/templates/base.html:136
 msgid "RV Account"
 msgstr "Ruokavälityksen tili"
 
-#: tekis/templates/base.html:141
-msgid "Content &copy; TKO-äly ry and contributors."
-msgstr "Sisältö &copy; TKO-äly ry ja kirjoittajat"
+#: tekis/templates/base.html:142
+#, python-format
+msgid "Content &copy; %(SITE_NAME)s and contributors."
+msgstr "Sisältö &copy; %(SITE_NAME)s ja kirjoittajat"
 
-#: tekis/templates/base.html:143
+#: tekis/templates/base.html:144
 #, python-format
 msgid ""
 "The website software is free software and <a href=\"%(source_link)s\">is "
@@ -464,6 +470,111 @@ msgstr "/yrityksille"
 msgid "Information for corporations"
 msgstr "Tietoa yrityksille"
 
+#: tekis/templates/oauth2_provider/application_detail.html:6
+#, python-format
+msgid "OAuth Application: %(name)s"
+msgstr "OAuth-sovellus: %(name)s"
+
+#: tekis/templates/oauth2_provider/application_detail.html:10
+msgid ""
+"If you lose the secret, please delete and recreate\n"
+"    the app."
+msgstr "Jos hukkaat salaisuuden, ole hyvä ja poista ja luo sovellus uudelleen."
+
+#: tekis/templates/oauth2_provider/application_detail.html:15
+msgid "Client ID:"
+msgstr "Asiakas-ID:"
+
+#: tekis/templates/oauth2_provider/application_detail.html:19
+msgid "Client Secret:"
+msgstr "Asiakassalaisuus:"
+
+#: tekis/templates/oauth2_provider/application_detail.html:26
+msgid "Client type:"
+msgstr "Asiakkaan tyyppi"
+
+#: tekis/templates/oauth2_provider/application_detail.html:31
+msgid "Authorization Grant Type:"
+msgstr "Auktorisoinnin tyyppi"
+
+#: tekis/templates/oauth2_provider/application_detail.html:37
+#: tekis/templates/oauth2_provider/application_form.html:28
+msgid "Go Back"
+msgstr "Takaisin"
+
+#: tekis/templates/oauth2_provider/application_detail.html:38
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: tekis/templates/oauth2_provider/application_detail.html:39
+msgid "Delete"
+msgstr "Poista"
+
+#: tekis/templates/oauth2_provider/application_form.html:9
+#, python-format
+msgid "Edit application %(name)s"
+msgstr "Muokkaa sovellusta %(name)s"
+
+#: tekis/templates/oauth2_provider/application_form.html:30
+msgid "Save"
+msgstr "Tallenna"
+
+#: tekis/templates/oauth2_provider/index.html:8
+#, python-format
+msgid ""
+"The %(SITE_NAME)s single sign on service allows members to access "
+"association and affiliate services with a single login. You can manage your "
+"access or create your own services here."
+msgstr "%(SITE_NAME)s SSO-palvelu tarjoaa jäsenille pääsyn yhdistyksen ja yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Voit hallita palveluiden pääsyä tietoihisi tai luoda uusia palveluita täällä."
+
+#: tekis/templates/oauth2_provider/index.html:11
+msgid "Applications"
+msgstr "Sovellukset"
+
+#: tekis/templates/oauth2_provider/index.html:12
+msgid "Access Tokens"
+msgstr "Pääsyluvat"
+
+#: tekis/templates/oauth2_provider/index.html:15
+msgid "API information"
+msgstr "Rajapinnan tiedot"
+
+#: tekis/templates/oauth2_provider/index.html:17
+msgid "SSO is implemented using OAuth2."
+msgstr "SSO on toteutettu OAuth2:n avulla."
+
+#: tekis/templates/oauth2_provider/index.html:19
+msgid "To access authenticated APIs, a Bearer Token is preferred."
+msgstr "Autentikoituihin rajapintoihin pääsee käsiksi Bearer Tokenin avulla."
+
+#: tekis/templates/oauth2_provider/index.html:26
+msgid "Reference"
+msgstr "Hakemisto"
+
+#: tekis/templates/oauth2_provider/index.html:30
+msgid "Endpoint"
+msgstr "Päätepiste"
+
+#: tekis/templates/oauth2_provider/index.html:32
+msgid "Description"
+msgstr "Kuvaus"
+
+#: tekis/templates/oauth2_provider/index.html:37
+msgid "Asks the user to authorize"
+msgstr "Pyytää käyttäjää auktorisoimaan"
+
+#: tekis/templates/oauth2_provider/index.html:42
+msgid "Exchange grant for token"
+msgstr "Vaihda auktorisointi pääsylupaan (token)"
+
+#: tekis/templates/oauth2_provider/index.html:47
+msgid "Revoke a token"
+msgstr "Hylkää pääsylupa (token)"
+
+#: tekis/templates/oauth2_provider/index.html:53
+msgid "Exchange a token for user information as JSON."
+msgstr "Vaihda pääsylupa käyttäjätietoihin JSON-muodossa"
+
 #: tekis/templates/registration/logged_out.html:8
 msgid "Logged out successfully. Thank you for spending time with us today!"
 msgstr ""
@@ -479,18 +590,22 @@ msgid ""
 "Not a member? <a href=\"%(register_link)s\">Register as a new member</a>"
 msgstr "Etkö ole jäsen? <a href=\"%(register_link)s\">Liity jäseneksi</a>"
 
-#: tekis/templates/registration/login.html:24
+#: tekis/templates/registration/login.html:33
 msgid "Log in"
 msgstr "Kirjaudu"
 
-#: tekis/urls.py:32
+#: tekis/templates/snippets/form_group.html:8
+msgid "Required"
+msgstr "Tärkeä kenttä"
+
+#: tekis/urls.py:47
 msgid "^board/"
 msgstr "^hallitus/"
 
-#: tekis/urls.py:33
+#: tekis/urls.py:48
 msgid "^login/$"
 msgstr "^kirjaudu/$"
 
-#: tekis/urls.py:34
+#: tekis/urls.py:49
 msgid "^logout/$"
 msgstr "^ulos/$"
