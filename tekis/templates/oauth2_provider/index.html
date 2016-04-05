@@ -23,7 +23,9 @@
 
 <p>
   {% with "http://tutorials.jenkov.com/oauth2/endpoints.html" as tutorial_url %}
-  {% blocktrans %}Check out OAuth tutorials, RFC, etc. for more details about OAuth 2 protocol views. <a href="{{ tutorial_url }}">This one might be a decent tutorial</a>{% endblocktrans %}
+  {% with "http://django-oauth-toolkit.herokuapp.com/consumer/" as consumer_url %}
+  {% blocktrans %}Check out OAuth tutorials, RFC, etc. for more details about OAuth 2 protocol views. <a href="{{ tutorial_url }}">This one might be a decent tutorial</a>. You can fiddle with the API using <a href="{{ consumer_url }}">this sample consumer app</a> and the endpoint URLs given below.{% endblocktrans %}
+  {% endwith %}
   {% endwith %}
 </p>
 
