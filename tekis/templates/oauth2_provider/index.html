@@ -5,52 +5,65 @@
 {% block content %}
 <h2>{% trans "Single Sign On" %}</h2>
 
+{% if user.is_authenticated %}
 <p>{% blocktrans %}The {{ SITE_NAME }} single sign on service allows members to access association and affiliate services with a single login. You can manage your access or create your own services here.{% endblocktrans %}</p>
-
 <ul>
   <li><a href="{% url "oauth2_provider:list" %}">{% trans "Applications" %}</a></li>
   <li><a href="{% url "oauth2_provider:authorized-token-list" %}">{% trans "Access Tokens" %}</a></li>
 </ul>
+{% else %}
+<p>{% blocktrans %}The {{ SITE_NAME }} single sign on service allows members to access association and affiliate services with a single login. Members can manage their SSO access or create their own services here.{% endblocktrans %}</p>
 
-<h3>{% trans "API information" %}</h3>
+{% url 'login' as login_url %}
+<p>{% blocktrans %}You are currently not logged in as a member, but you can still browse the API reference below. Members can <a href="{{ login_url }}">log in here</a>.{% endblocktrans %}</p>
+{% endif %}
+<h3>{% trans "API reference" %}</h3>
 
 <p>{% blocktrans %}SSO is implemented using OAuth2.{% endblocktrans %}</p>
 
-<p>{% blocktrans %}To access authenticated APIs, a Bearer Token is preferred.{% endblocktrans %}
+<p>
+  {% with "http://tutorials.jenkov.com/oauth2/endpoints.html" as tutorial_url %}
+  {% blocktrans %}Check out OAuth tutorials, RFC, etc. for more details about OAuth 2 protocol views. <a href="{{ tutorial_url }}">This one might be a decent tutorial</a>{% endblocktrans %}
+  {% endwith %}
+</p>
 
-<h4>HTTP Header:</h4>
+<p>
+  {% blocktrans %}Authorization code flow is supported. Supported scopes are <tt>read</tt> and <tt>write</tt>.{% endblocktrans %}
+</p>
+
+<p>
+  {% blocktrans %}You can also test your authentication code on a clone of this site. The link to this site's source code should be provided in the footer.{% endblocktrans %}
+</p>
+
+<p>{% blocktrans %}To access authenticated APIs, a Bearer Token is supported.{% endblocktrans %}
+
+<h5>HTTP Header:</h5>
 <pre>
   Authorization: Bearer &lt;TOKEN-BLOB&gt;
 </pre>
 
-<h4>{% trans "Reference" %}</h4>
+<div>
+  <h4>OAuth Authorize</h4>
+  <p><tt>GET {{ SITE_URL }}{% url 'oauth2_provider:authorize' %}</tt></p>
+  <p>{% trans "Asks the user to authorize the app" %}</td>
+</div>
 
-<table class="table">
-  <tr>
-    <th>{% trans "Endpoint" %}</th>
-    <th>{% trans "URL" %}</th>
-    <th>{% trans "Description" %}</th>
-  </tr>
-  <tr>
-    <td>OAuth Authorize</td>
-    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:authorize' %}</tt></td>
-    <td>{% trans "Asks the user to authorize" %}</td>
-  </tr>
-  <tr>
-    <td>OAuth Token</td>
-    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:token' %}</tt></td>
-    <td>{% trans "Exchange grant for token" %}</td>
-  </tr>
-  <tr>
-    <td>OAuth Token Revoke</td>
-    <td><tt>{{ SITE_URL }}{% url 'oauth2_provider:revoke-token' %}</tt></td>
-    <td>{% trans "Revoke a token" %}</td>
-  </tr>
-  <tr>
-    <td>Member info</td>
-    <td><tt>{{ SITE_URL }}{% url 'api-member' %}</tt></td>
-    <td>
-      <p>{% trans "Exchange a token for user information as JSON." %}</p>
+<div>
+  <h4>OAuth Token</h4>
+  <p><tt>POST {{ SITE_URL }}{% url 'oauth2_provider:token' %}</tt></p>
+  <p>{% trans "Exchange grant for token" %}</p>
+</div>
+
+<div>
+  <h4>OAuth Token Revoke</h4>
+  <p><tt>POST {{ SITE_URL }}{% url 'oauth2_provider:revoke-token' %}</tt></p>
+  <p>{% trans "Revoke a token" %}</p>
+</div>
+
+<div>
+  <h4>Member info</h4>
+  <p><tt>GET {{ SITE_URL }}{% url 'api-member' %}</tt></p>
+  <p>{% trans "Exchange a token for user information as JSON." %}</p>
 <pre>{
   "content": {
     "username": "jouluporo"
@@ -58,8 +71,6 @@
     "role": "jasen"
   }
 }</pre>
-      <p><tt>role</tt>: [<tt>"jasen"</tt>, <tt>"virkailija"</tt>, <tt>"yllapitaja"</tt>]</p>
-    </td>
-  </tr>
-</table>
+  <p><tt>role</tt>: [<tt>"jasen"</tt>, <tt>"virkailija"</tt>, <tt>"yllapitaja"</tt>]</p>
+</div>
 {% endblock %}
