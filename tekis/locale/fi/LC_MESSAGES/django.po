@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-22 19:43+0200\n"
+"POT-Creation-Date: 2016-04-05 16:25+0300\n"
 "PO-Revision-Date: 2016-02-26 19:25+0200\n"
 "Last-Translator: Leo Honkanen <leo.o.honkanen@gmail.com>\n"
 "Language-Team: TKO-äly ry admins <yllapito@tko-aly.fi>\n"
@@ -195,7 +195,6 @@ msgid "Language"
 msgstr "Kieli"
 
 #: tekis/flatpages/models.py:69 tekis/flatpages/models.py:118
-#: tekis/templates/oauth2_provider/index.html:31
 msgid "URL"
 msgstr "URL"
 
@@ -519,13 +518,16 @@ msgstr "Muokkaa sovellusta %(name)s"
 msgid "Save"
 msgstr "Tallenna"
 
-#: tekis/templates/oauth2_provider/index.html:8
+#: tekis/templates/oauth2_provider/index.html:9
 #, python-format
 msgid ""
 "The %(SITE_NAME)s single sign on service allows members to access "
 "association and affiliate services with a single login. You can manage your "
 "access or create your own services here."
-msgstr "%(SITE_NAME)s SSO-palvelu tarjoaa jäsenille pääsyn yhdistyksen ja yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Voit hallita palveluiden pääsyä tietoihisi tai luoda uusia palveluita täällä."
+msgstr ""
+"%(SITE_NAME)s SSO-palvelu tarjoaa jäsenille pääsyn yhdistyksen ja "
+"yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Voit hallita "
+"palveluiden pääsyä tietoihisi tai luoda uusia palveluita täällä."
 
 #: tekis/templates/oauth2_provider/index.html:11
 msgid "Applications"
@@ -536,42 +538,71 @@ msgid "Access Tokens"
 msgstr "Pääsyluvat"
 
 #: tekis/templates/oauth2_provider/index.html:15
-msgid "API information"
-msgstr "Rajapinnan tiedot"
+#, python-format
+msgid ""
+"The %(SITE_NAME)s single sign on service allows members to access "
+"association and affiliate services with a single login. Members can manage "
+"their SSO access or create their own services here."
+msgstr ""
+"%(SITE_NAME)s SSO-palvelu tarjoaa jäsenille pääsyn yhdistyksen ja "
+"yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Jäsenet voivat hallita "
+"palveluiden pääsyä tietoihinsa tai luoda uusia palveluita täällä."
 
-#: tekis/templates/oauth2_provider/index.html:17
+#: tekis/templates/oauth2_provider/index.html:18
+#, python-format
+msgid ""
+"You are currently not logged in as a member, but you can still browse the "
+"API reference below. Members can <a href=\"%(login_url)s\">log in here</a>."
+msgstr "Et ole tällä hetkellä kirjautuneena jäseneksi, mutta voit silti selata API-hakuteosta alla. Jäsenet voivat <a href=\"%(login_url)s\">kirjautua tästä</a>."
+
+#: tekis/templates/oauth2_provider/index.html:20
+#| msgid "Reference"
+msgid "API reference"
+msgstr "API-Hakuteos"
+
+#: tekis/templates/oauth2_provider/index.html:22
 msgid "SSO is implemented using OAuth2."
 msgstr "SSO on toteutettu OAuth2:n avulla."
 
-#: tekis/templates/oauth2_provider/index.html:19
-msgid "To access authenticated APIs, a Bearer Token is preferred."
-msgstr "Autentikoituihin rajapintoihin pääsee käsiksi Bearer Tokenin avulla."
+#: tekis/templates/oauth2_provider/index.html:27
+#, python-format
+msgid ""
+"Check out OAuth tutorials, RFC, etc. for more details about OAuth 2 protocol "
+"views. <a href=\"%(tutorial_url)s\">This one might be a decent tutorial</a>. "
+"You can fiddle with the API using <a href=\"%(consumer_url)s\">this sample "
+"consumer app</a> and the endpoint URLs given below."
+msgstr "Voit käyttää OAuth-ohjeita, RFC:tä, yms. OAuth-päätepisteiden tarkempien yksityiskohtien selvittämiseksi. Esim. <a href=\"%(tutorial_url)s\">tässä voisi olla siedettävä ohje</a>. Voit myös tutkia APIa käyttämällä <a href=\"%(consumer_url)s\">tätä testisovellusta</a> antaen sille alla listatut päätepiste-URLit."
 
-#: tekis/templates/oauth2_provider/index.html:26
-msgid "Reference"
-msgstr "Hakemisto"
-
-#: tekis/templates/oauth2_provider/index.html:30
-msgid "Endpoint"
-msgstr "Päätepiste"
-
-#: tekis/templates/oauth2_provider/index.html:32
-msgid "Description"
-msgstr "Kuvaus"
+#: tekis/templates/oauth2_provider/index.html:33
+msgid ""
+"Authorization code flow is supported. Supported scopes are <tt>read</tt> and "
+"<tt>write</tt>."
+msgstr "Auktorisaatiokoodin flow (authorization code flow) on tuettu. Tuetut valtuudet ovat <tt>read</tt> (vain luku) ja <tt>write</tt> (vain kirjoitus)."
 
 #: tekis/templates/oauth2_provider/index.html:37
-msgid "Asks the user to authorize"
-msgstr "Pyytää käyttäjää auktorisoimaan"
+msgid ""
+"You can also test your authentication code on a clone of this site. The link "
+"to this site's source code should be provided in the footer."
+msgstr "Voit myös kokeilla autentikointikoodia tämän sivuston kloonia vasten. Linkki lähdekoodiin pitäisi olla sivun alareunassa."
 
-#: tekis/templates/oauth2_provider/index.html:42
+#: tekis/templates/oauth2_provider/index.html:40
+#| msgid "To access authenticated APIs, a Bearer Token is preferred."
+msgid "To access authenticated APIs, a Bearer Token is supported."
+msgstr "Autentikoituihin rajapintoihin pääsee käsiksi Bearer Tokenin avulla."
+
+#: tekis/templates/oauth2_provider/index.html:50
+msgid "Asks the user to authorize the app"
+msgstr "Pyytää käyttäjää auktorisoimaan sovelluksen"
+
+#: tekis/templates/oauth2_provider/index.html:56
 msgid "Exchange grant for token"
 msgstr "Vaihda auktorisointi pääsylupaan (token)"
 
-#: tekis/templates/oauth2_provider/index.html:47
+#: tekis/templates/oauth2_provider/index.html:62
 msgid "Revoke a token"
 msgstr "Hylkää pääsylupa (token)"
 
-#: tekis/templates/oauth2_provider/index.html:53
+#: tekis/templates/oauth2_provider/index.html:68
 msgid "Exchange a token for user information as JSON."
 msgstr "Vaihda pääsylupa käyttäjätietoihin JSON-muodossa"
 
