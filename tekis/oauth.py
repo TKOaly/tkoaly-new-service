@@ -45,11 +45,11 @@ class IndexView(TemplateView):
 
 urlpatterns = [
     url(r'^$', IndexView.as_view(), name="index"),
-    url(r'^authorize/$', oauth_views.AuthorizationView.as_view(),
+    url(r'^authorize/?$', oauth_views.AuthorizationView.as_view(),
         name="authorize"),
-    url(r'^token/$', oauth_views.TokenView.as_view(),
+    url(r'^token/?$', oauth_views.TokenView.as_view(),
         name="token"),
-    url(r'^revoke_token/$', oauth_views.RevokeTokenView.as_view(),
+    url(r'^revoke_token/?$', oauth_views.RevokeTokenView.as_view(),
         name="revoke-token"),
     # ---
     url(r'^applications/', include([
