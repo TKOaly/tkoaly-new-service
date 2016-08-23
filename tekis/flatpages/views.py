@@ -33,4 +33,7 @@ def flatpage(request, url):
             # no such page whatsoever
             raise http.Http404("No such flatpage: lang=%r, url=%r" % (lang,url))
 
-    return render(request, "flatpage.html", context={"page":page})
+    return render(request, "flatpage.html", context={
+        "page":page,
+        "current_category": page.flatpage.menu_category
+    })

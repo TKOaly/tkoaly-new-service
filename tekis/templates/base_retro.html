@@ -39,6 +39,7 @@
 	      {% trans "Association" %}
 	    </a>
 	  </li>
+	  {% if current_category == 1 %}
 	  <li class="overlap submenu">
 	    <ul class="sub">
 	      <li><a href="{% url "board" %}">{% trans "Board" %}</a></li>
@@ -46,17 +47,20 @@
 	      <li class="overlap"></li>
 	    </ul>
 	  </li>
+	  {% endif %}
 	  <li>
 	    <a href="{% mainpage_link_for_category 2 %}">
 	      {% trans "Activities" %}
 	    </a>
 	  </li>
+	  {% if current_category == 2 %}
 	  <li class="overlap submenu">
 	    <ul class="sub">
 	      {% menu_for_category 2 %}
 	      <li class="overlap"></li>
 	    </ul>
 	  </li>
+	  {% endif %}
 	  {% menu_for_category 0 %}
 	  {% get_available_languages as LANGUAGES %}
 	  {% get_language_info_list for LANGUAGES as languages %}
