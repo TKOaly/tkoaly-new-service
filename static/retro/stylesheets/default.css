@@ -108,12 +108,12 @@ div#menu .overlap {
     border-right: 10px solid transparent
 }
 
-div#menu ul#sub {
+div#menu ul.sub {
     width: 130px;
     margin: -5px 0 0 0
 }
 
-div#menu ul#sub li {
+div#menu ul.sub li {
     height: 40px;
     list-style: none;
     line-height: 40px;
@@ -121,12 +121,12 @@ div#menu ul#sub li {
     font-size: 16px
 }
 
-div#menu ul#sub li.submenu {
+div#menu ul.sub li.submenu {
     height: auto;
     line-height: auto
 }
 
-div#menu ul#sub a {
+div#menu ul.sub a {
     display: block;
     padding-left: 20px;
     background-color: #fff;
@@ -134,15 +134,15 @@ div#menu ul#sub a {
     text-decoration: none
 }
 
-div#menu ul#sub a:hover {
+div#menu ul.sub a:hover {
     font-weight: bold
 }
 
-div#menu ul#sub .border {
+div#menu ul.sub .border {
     width: 130px
 }
 
-div#menu ul#sub .overlap {
+div#menu ul.sub .overlap {
     clear: both;
     width: 120px;
     height: 0;

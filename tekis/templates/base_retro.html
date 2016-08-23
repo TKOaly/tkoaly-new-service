@@ -40,7 +40,7 @@
 	    </a>
 	  </li>
 	  <li class="overlap submenu">
-	    <ul id="sub">
+	    <ul class="sub">
 	      <li><a href="{% url "board" %}">{% trans "Board" %}</a></li>
 	      {% menu_for_category 1 %}
 	      <li class="overlap"></li>
@@ -54,6 +54,7 @@
 	  <li class="overlap submenu">
 	    <ul class="sub">
 	      {% menu_for_category 2 %}
+	      <li class="overlap"></li>
 	    </ul>
 	  </li>
 	  {% menu_for_category 0 %}
