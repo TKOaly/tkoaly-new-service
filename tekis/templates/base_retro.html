@@ -1,0 +1,139 @@
+<!doctype html>
+<!--?xml version='1.0' encoding='utf-8' ?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+{% load i18n %}
+{% load flatpage_tags %}
+{% load staticfiles %}
+
+<head>
+{% block header %}
+  <title>{{ SITE_NAME }}</title>
+{% endblock %}
+
+<link href="{% static "retro/stylesheets/reset.css" %}" rel="stylesheet">
+<link href="{% static "retro/stylesheets/default.css" %}" rel="stylesheet">
+<link href="{% static "retro/favicon.ico.png" %}" rel="shortcut icon" type="image/x-icon">
+
+{% get_current_language as LANGUAGE_CODE %}
+<meta content="{{ LANGUAGE_CODE }}" http-equiv="content-language">
+<meta content="TKO-äly ry" name="author">
+<meta content="TKO-äly ry - Helsingin yliopiston tietojenkäsittelytieteen opiskelijoiden ainejärjestö" name="description">
+<meta content="http://tko-aly.fi/images/logo-150.png" property="og:image">
+{% block extra_css %}{% endblock %}
+</head>
+
+<body>
+  <div id="wrapper">
+    {% block menu %}
+      <div id="menu">
+	<form method="post" action="{% url 'set_language' %}">
+	  {% csrf_token %}
+	  <ul>
+	  <li class="border">
+	    <a href="/">{% trans "Main page" %}</a>
+	  </li>
+	  <li>
+	    <a href="{% mainpage_link_for_category 1 %}">
+	      {% trans "Association" %}
+	    </a>
+	  </li>
+	  <li class="overlap submenu">
+	    <ul id="sub">
+	      <li><a href="{% url "board" %}">{% trans "Board" %}</a></li>
+	      {% menu_for_category 1 %}
+	      <li class="overlap"></li>
+	    </ul>
+	  </li>
+	  <li>
+	    <a href="{% mainpage_link_for_category 2 %}">
+	      {% trans "Activities" %}
+	    </a>
+	  </li>
+	  <li class="overlap submenu">
+	    <ul class="sub">
+	      {% menu_for_category 2 %}
+	    </ul>
+	  </li>
+	  {% menu_for_category 0 %}
+	  {% get_available_languages as LANGUAGES %}
+	  {% get_language_info_list for LANGUAGES as languages %}
+	  {% for language in languages %}
+	    {% if language != LANGUAGE_CODE %}
+	      <li class="border">
+		<button name="language" value="{{ language.code }}">
+		  {{ language.name_local|capfirst }} ({{ language.code }})
+		</button>
+	      </li>
+	    {% endif %}
+	  {% endfor %}
+	  {% block extra_menu %}{% endblock %}
+	  <li class="overlap"></li>
+	</ul>
+	</form>
+      </div>
+    {% endblock %}
+
+  <div id="content">
+    <div id="header">
+      <h1>
+	<a href="/">
+	  <span class="whitetext">
+	    Helsingin yliopiston tietojenkäsittelytieteen
+	    <br>
+	  </span>
+	  opiskelijoiden ainejärjestö
+	</a>
+      </h1>
+    </div>
+    <h1 id="title">{% block extra_title %}{% endblock %}</h1>
+    <div id="text">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div id="sponsor">
+      <h1>{% trans "Sponsors" %}</h1>
+      {% show_sponsors %}
+    </div>
+    <div id="footer">
+      <div class="section">
+	<h1>{% trans "Mail" %}</h1>
+	TKO-äly ry / TKTL<br>
+	PL 68<br>
+	00014 Helsingin yliopisto
+	<h1>{% trans "Company ID (Y-tunnus)" %}</h1>
+	1978827-2<br>
+      </div>
+      <div class="section">
+	<h1>{% trans "E-mail" %}</h1>
+	hallitus (ät) tko-aly.fi
+	<h1>{% trans "Chairman" %}</h1>
+	pj ät tko-aly.fi
+      </div>
+      <div class="section">
+	<h1>{% trans "Phone to student room Gurula" %}</h1>
+	+358-50-4480186
+	<h1>{% trans "Bank Accounts" %}</h1>
+	{% trans "Main Account" %} FI28 3939 0001 3001 02<br>
+	{% trans "RV Account" %} FI50 3939 0001 3000 94<br>
+	BIC SBANFIHH
+      </div>
+      <div class="overlap"></div>
+    </div>
+
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5349600-1']);
+    _gaq.push(['_setDomainName', '.tko-aly.fi']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+  </div>
+</body>

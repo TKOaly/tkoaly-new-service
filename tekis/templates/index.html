@@ -1,24 +1,12 @@
-{% extends "base.html" %}
+{% extends BASE_TEMPLATE %}
 
 {% load i18n %}
 {% load flatpage_tags %}
 {% load staticfiles %}
 
-{% block content %}
+{% block extra_title %}{% trans "Welcome" %}{% endblock %}
 
-<div class="jumbotron" id="tekishero">
-  <div class="container">
-    <img src="{% static "img/logo-150.png" %}" alt="TKO-äly ry" class="pull-left">
-    <h1>TKO-äly ry</h1>
-    <p>{% trans "Association for Computer Science students in the University of Helsinki" %}</p>
-    <p>{% trans "Founded 1988" %}</p>
-    <p>
-      <a class="btn btn-primary btn-lg" href="https://members.tko-aly.fi/users/add/" role="button">{% trans "Become a Member" %}</a>
-      <a class="btn btn-default btn-lg" href="{% trans "/welcome" %}" role="button">{% trans "Information for freshmen" %}</a>
-      <a class="btn btn-default btn-lg" href="{% trans "/corporate" %}" role="button">{% trans "Information for corporations" %}</a>
-    </p>
-  </div>
-</div>
+{% block content %}
 
 {% embed_flatpage "" %}
 

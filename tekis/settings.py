@@ -175,3 +175,4 @@ CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
 
 SITE_NAME = "TKO-Äly ry"
 SITE_URL = "http://localhost:8000"
+BASE_TEMPLATE = "base_retro.html"
