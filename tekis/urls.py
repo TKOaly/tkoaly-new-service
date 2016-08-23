@@ -21,12 +21,18 @@ from django.utils import translation
 from django.utils.translation import ugettext as _
 from django.contrib.auth.views import login, logout
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from tekis.flatpages.views import flatpage
 from tekis.members.api import MemberDetailsView
 
 def index(request):
     return render(request, "index.html")
+
+def members_redir(request, event_id):
+    return HttpResponseRedirect(
+        "https://members.tko-aly.fi/calendar_events/view/%s/" % event_id
+    )
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,6 +41,7 @@ urlpatterns = [
     url(r'^api/v1/', include([
         url('^me/$', MemberDetailsView.as_view(), name="api-member"),
     ])),
+    url(r'^event/(?P<event_id>\d+)$', members_redir),
     url(r'^$', index, name="index"),
 ]
 
