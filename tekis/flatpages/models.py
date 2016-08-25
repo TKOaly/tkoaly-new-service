@@ -49,7 +49,10 @@ class Flatpage(models.Model):
     )
 
     def __unicode__(self):
-        return self.localflatpage_set.first().title
+        try:
+            return self.localflatpage_set.first().title
+        except AttributeError:
+            return _("(no content yet)")
 
     class Meta:
         verbose_name = _("Flatpage")

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-05 16:25+0300\n"
+"POT-Creation-Date: 2016-08-25 20:14+0300\n"
 "PO-Revision-Date: 2016-02-26 19:25+0200\n"
 "Last-Translator: Leo Honkanen <leo.o.honkanen@gmail.com>\n"
 "Language-Team: TKO-äly ry admins <yllapito@tko-aly.fi>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: tekis/board/apps.py:9 tekis/board/models.py:15 tekis/templates/base.html:37
+#: tekis/templates/base_retro.html:45
 msgid "Board"
 msgstr "Hallitus"
 
@@ -24,12 +25,13 @@ msgstr "Hallitus"
 msgid "Boards"
 msgstr "Hallituksia"
 
-#: tekis/board/models.py:19 tekis/board/templates/board/board.html.py:7
+#: tekis/board/models.py:19 tekis/board/templates/board/board.html:7
 #, python-format
 msgid "Board %(year)s"
 msgstr "Hallitus %(year)s"
 
-#: tekis/board/models.py:22 tekis/templates/base.html.py:128
+#: tekis/board/models.py:22 tekis/templates/base.html:128
+#: tekis/templates/base_retro.html:116
 msgid "Chairman"
 msgstr "Puheenjohtaja"
 
@@ -85,8 +87,8 @@ msgstr "3. varajäsen"
 msgid "Fourth deputy board member"
 msgstr "4. varajäsen"
 
-#: tekis/board/models.py:41 tekis/flatpages/models.py:116
-#: tekis/flatpages/models.py:149 tekis/flatpages/models.py:194
+#: tekis/board/models.py:41 tekis/flatpages/models.py:119
+#: tekis/flatpages/models.py:152 tekis/flatpages/models.py:197
 #: tekis/templates/admin/flatpages/contentimage/change_form.html:10
 msgid "Name"
 msgstr "Nimi"
@@ -132,7 +134,7 @@ msgstr "Lisäasetukset"
 msgid "Available languages"
 msgstr "Kielet"
 
-#: tekis/flatpages/apps.py:9 tekis/flatpages/models.py:56
+#: tekis/flatpages/apps.py:9 tekis/flatpages/models.py:59
 msgid "Flatpages"
 msgstr "Sisältösivuja"
 
@@ -187,95 +189,100 @@ msgid "Published"
 msgstr "Julkaistu"
 
 #: tekis/flatpages/models.py:55
+msgid "(no content yet)"
+msgstr "(ei sisältöä vielä)"
+
+#: tekis/flatpages/models.py:58
 msgid "Flatpage"
 msgstr "Sisältösivu"
 
-#: tekis/flatpages/models.py:63
+#: tekis/flatpages/models.py:66
 msgid "Language"
 msgstr "Kieli"
 
-#: tekis/flatpages/models.py:69 tekis/flatpages/models.py:118
+#: tekis/flatpages/models.py:72 tekis/flatpages/models.py:121
 msgid "URL"
 msgstr "URL"
 
-#: tekis/flatpages/models.py:70
+#: tekis/flatpages/models.py:73
 msgid "The page is accessible on this path. Even external links have one."
 msgstr "Sivun voi lukea tästä polusta. Myös linkeillä on sisäinen URL."
 
-#: tekis/flatpages/models.py:72
+#: tekis/flatpages/models.py:75
 msgid "Title"
 msgstr "Otsikko"
 
-#: tekis/flatpages/models.py:76
+#: tekis/flatpages/models.py:79
 msgid "Menu Title"
 msgstr "Valikko-otsikko"
 
-#: tekis/flatpages/models.py:77
+#: tekis/flatpages/models.py:80
 msgid "Shorter title that fits in menu elements"
 msgstr "Lyhyempi otsikko joka mahtuu valikkoon"
 
-#: tekis/flatpages/models.py:80
+#: tekis/flatpages/models.py:83
 msgid "Content"
 msgstr "Sisältö"
 
-#: tekis/flatpages/models.py:81
+#: tekis/flatpages/models.py:84
 msgid "Body text for pages, URL for direct links"
 msgstr "Leipäteksti sivuille, kohde-URL linkeille"
 
-#: tekis/flatpages/models.py:84
+#: tekis/flatpages/models.py:87
 msgid "Content markup"
 msgstr "Sisällön merkintätapa"
 
-#: tekis/flatpages/models.py:107
+#: tekis/flatpages/models.py:110
 msgid "Local Flatpage"
 msgstr "Kotoistettu sisältösivu"
 
-#: tekis/flatpages/models.py:108
+#: tekis/flatpages/models.py:111
 msgid "Local Flatpages"
 msgstr "Kotoistettuja sisältösivuja"
 
-#: tekis/flatpages/models.py:123
+#: tekis/flatpages/models.py:126
 msgid "Title text"
 msgstr "Otsikkoteksti"
 
-#: tekis/flatpages/models.py:125
+#: tekis/flatpages/models.py:128
 msgid "Is active"
 msgstr "Aktiivinen"
 
-#: tekis/flatpages/models.py:131
+#: tekis/flatpages/models.py:134
 msgid "Sponsor"
 msgstr "Yhteistyökumppani"
 
-#: tekis/flatpages/models.py:132 tekis/templates/base.html.py:107
+#: tekis/flatpages/models.py:135 tekis/templates/base.html:107
+#: tekis/templates/base_retro.html:101
 msgid "Sponsors"
 msgstr "Yhteistyökumppanit"
 
-#: tekis/flatpages/models.py:155
+#: tekis/flatpages/models.py:158
 msgid "Image"
 msgstr "Kuva"
 
-#: tekis/flatpages/models.py:186
+#: tekis/flatpages/models.py:189
 msgid "content image"
 msgstr "kuvituskuva"
 
-#: tekis/flatpages/models.py:187
+#: tekis/flatpages/models.py:190
 msgid "content images"
 msgstr "kuvituskuvia"
 
-#: tekis/flatpages/models.py:199
+#: tekis/flatpages/models.py:202
 #: tekis/templates/admin/flatpages/contentimage/change_form.html:11
 msgid "Size"
 msgstr "Koko"
 
-#: tekis/flatpages/models.py:203
+#: tekis/flatpages/models.py:206
 msgid "File"
 msgstr "Tiedosto"
 
-#: tekis/flatpages/models.py:218
+#: tekis/flatpages/models.py:221
 msgid "download"
 msgstr "tiedosto"
 
-#: tekis/flatpages/models.py:219
+#: tekis/flatpages/models.py:222
 msgid "downloads"
 msgstr "tiedostoja"
 
@@ -323,11 +330,13 @@ msgstr "Tukijäsen"
 msgid "Honor member"
 msgstr "Kunniajäsen"
 
-#: tekis/settings.py:86 tekis/templates/base.html.py:33
+#: tekis/settings.py:86 tekis/templates/base.html:33
+#: tekis/templates/base_retro.html:39
 msgid "Association"
 msgstr "Yhdistys"
 
-#: tekis/settings.py:87 tekis/templates/base.html.py:43
+#: tekis/settings.py:87 tekis/templates/base.html:43
+#: tekis/templates/base_retro.html:53
 msgid "Activities"
 msgstr "Toiminta"
 
@@ -389,11 +398,11 @@ msgstr "Kirjaudu ulos"
 msgid "Not logged in"
 msgstr "Ei kirjautuneena"
 
-#: tekis/templates/base.html:74 tekis/templates/registration/login.html.py:6
+#: tekis/templates/base.html:74 tekis/templates/registration/login.html:6
 msgid "Member login"
 msgstr "Jäsenten kirjautuminen"
 
-#: tekis/templates/base.html:75 tekis/templates/index.html.py:16
+#: tekis/templates/base.html:75
 msgid "Become a Member"
 msgstr "Liity jäseneksi"
 
@@ -401,40 +410,40 @@ msgstr "Liity jäseneksi"
 msgid "Select Language"
 msgstr "Valitse Kieli"
 
-#: tekis/templates/base.html:118
+#: tekis/templates/base.html:118 tekis/templates/base_retro.html:106
 msgid "Mail"
 msgstr "Posti"
 
-#: tekis/templates/base.html:122
+#: tekis/templates/base.html:122 tekis/templates/base_retro.html:110
 msgid "Company ID (Y-tunnus)"
 msgstr "Y-tunnus"
 
-#: tekis/templates/base.html:126
+#: tekis/templates/base.html:126 tekis/templates/base_retro.html:114
 msgid "E-mail"
 msgstr "Sähköposti"
 
-#: tekis/templates/base.html:132
+#: tekis/templates/base.html:132 tekis/templates/base_retro.html:120
 msgid "Phone to student room Gurula"
 msgstr "Puhelin opiskelijahuone Gurulaan"
 
-#: tekis/templates/base.html:134
+#: tekis/templates/base.html:134 tekis/templates/base_retro.html:122
 msgid "Bank Accounts"
 msgstr "Pankkitilit"
 
-#: tekis/templates/base.html:135
+#: tekis/templates/base.html:135 tekis/templates/base_retro.html:123
 msgid "Main Account"
 msgstr "Päätili"
 
-#: tekis/templates/base.html:136
+#: tekis/templates/base.html:136 tekis/templates/base_retro.html:124
 msgid "RV Account"
 msgstr "Ruokavälityksen tili"
 
-#: tekis/templates/base.html:142
+#: tekis/templates/base.html:143
 #, python-format
 msgid "Content &copy; %(SITE_NAME)s and contributors."
 msgstr "Sisältö &copy; %(SITE_NAME)s ja kirjoittajat"
 
-#: tekis/templates/base.html:144
+#: tekis/templates/base.html:145
 #, python-format
 msgid ""
 "The website software is free software and <a href=\"%(source_link)s\">is "
@@ -444,30 +453,13 @@ msgstr ""
 "href=\"%(source_link)s\">on saatavilla Githubissa.</a> Muokkaa ihmeessä "
 "siitä kotisivu oman yhdistyksesi eduksi!"
 
-#: tekis/templates/index.html:13
-msgid "Association for Computer Science students in the University of Helsinki"
-msgstr ""
-"Helsingin yliopiston tietojenkäsittelytieteen opiskelijoiden ainejärjestö"
+#: tekis/templates/base_retro.html:35
+msgid "Main page"
+msgstr "Etusivu"
 
-#: tekis/templates/index.html:14
-msgid "Founded 1988"
-msgstr "Perustettu 1988"
-
-#: tekis/templates/index.html:17
-msgid "/welcome"
-msgstr "/tervetuloa"
-
-#: tekis/templates/index.html:17
-msgid "Information for freshmen"
-msgstr "Tietoa fukseille"
-
-#: tekis/templates/index.html:18
-msgid "/corporate"
-msgstr "/yrityksille"
-
-#: tekis/templates/index.html:18
-msgid "Information for corporations"
-msgstr "Tietoa yrityksille"
+#: tekis/templates/index.html:7
+msgid "Welcome"
+msgstr "Tervetuloa"
 
 #: tekis/templates/oauth2_provider/application_detail.html:6
 #, python-format
@@ -545,18 +537,21 @@ msgid ""
 "their SSO access or create their own services here."
 msgstr ""
 "%(SITE_NAME)s SSO-palvelu tarjoaa jäsenille pääsyn yhdistyksen ja "
-"yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Jäsenet voivat hallita "
-"palveluiden pääsyä tietoihinsa tai luoda uusia palveluita täällä."
+"yhdistyksen kumppanien palveluihin yhden kirjautumisen takana. Jäsenet "
+"voivat hallita palveluiden pääsyä tietoihinsa tai luoda uusia palveluita "
+"täällä."
 
 #: tekis/templates/oauth2_provider/index.html:18
 #, python-format
 msgid ""
 "You are currently not logged in as a member, but you can still browse the "
 "API reference below. Members can <a href=\"%(login_url)s\">log in here</a>."
-msgstr "Et ole tällä hetkellä kirjautuneena jäseneksi, mutta voit silti selata API-hakuteosta alla. Jäsenet voivat <a href=\"%(login_url)s\">kirjautua tästä</a>."
+msgstr ""
+"Et ole tällä hetkellä kirjautuneena jäseneksi, mutta voit silti selata API-"
+"hakuteosta alla. Jäsenet voivat <a href=\"%(login_url)s\">kirjautua tästä</"
+"a>."
 
 #: tekis/templates/oauth2_provider/index.html:20
-#| msgid "Reference"
 msgid "API reference"
 msgstr "API-Hakuteos"
 
@@ -571,22 +566,30 @@ msgid ""
 "views. <a href=\"%(tutorial_url)s\">This one might be a decent tutorial</a>. "
 "You can fiddle with the API using <a href=\"%(consumer_url)s\">this sample "
 "consumer app</a> and the endpoint URLs given below."
-msgstr "Voit käyttää OAuth-ohjeita, RFC:tä, yms. OAuth-päätepisteiden tarkempien yksityiskohtien selvittämiseksi. Esim. <a href=\"%(tutorial_url)s\">tässä voisi olla siedettävä ohje</a>. Voit myös tutkia APIa käyttämällä <a href=\"%(consumer_url)s\">tätä testisovellusta</a> antaen sille alla listatut päätepiste-URLit."
+msgstr ""
+"Voit käyttää OAuth-ohjeita, RFC:tä, yms. OAuth-päätepisteiden tarkempien "
+"yksityiskohtien selvittämiseksi. Esim. <a href=\"%(tutorial_url)s\">tässä "
+"voisi olla siedettävä ohje</a>. Voit myös tutkia APIa käyttämällä <a href="
+"\"%(consumer_url)s\">tätä testisovellusta</a> antaen sille alla listatut "
+"päätepiste-URLit."
 
 #: tekis/templates/oauth2_provider/index.html:33
 msgid ""
 "Authorization code flow is supported. Supported scopes are <tt>read</tt> and "
 "<tt>write</tt>."
-msgstr "Auktorisaatiokoodin flow (authorization code flow) on tuettu. Tuetut valtuudet ovat <tt>read</tt> (vain luku) ja <tt>write</tt> (vain kirjoitus)."
+msgstr ""
+"Auktorisaatiokoodin flow (authorization code flow) on tuettu. Tuetut "
+"valtuudet ovat <tt>read</tt> (vain luku) ja <tt>write</tt> (vain kirjoitus)."
 
 #: tekis/templates/oauth2_provider/index.html:37
 msgid ""
 "You can also test your authentication code on a clone of this site. The link "
 "to this site's source code should be provided in the footer."
-msgstr "Voit myös kokeilla autentikointikoodia tämän sivuston kloonia vasten. Linkki lähdekoodiin pitäisi olla sivun alareunassa."
+msgstr ""
+"Voit myös kokeilla autentikointikoodia tämän sivuston kloonia vasten. Linkki "
+"lähdekoodiin pitäisi olla sivun alareunassa."
 
 #: tekis/templates/oauth2_provider/index.html:40
-#| msgid "To access authenticated APIs, a Bearer Token is preferred."
 msgid "To access authenticated APIs, a Bearer Token is supported."
 msgstr "Autentikoituihin rajapintoihin pääsee käsiksi Bearer Tokenin avulla."
 
@@ -629,14 +632,31 @@ msgstr "Kirjaudu"
 msgid "Required"
 msgstr "Tärkeä kenttä"
 
-#: tekis/urls.py:47
+#: tekis/urls.py:54
 msgid "^board/"
 msgstr "^hallitus/"
 
-#: tekis/urls.py:48
+#: tekis/urls.py:55
 msgid "^login/$"
 msgstr "^kirjaudu/$"
 
-#: tekis/urls.py:49
+#: tekis/urls.py:56
 msgid "^logout/$"
 msgstr "^ulos/$"
+
+#~ msgid ""
+#~ "Association for Computer Science students in the University of Helsinki"
+#~ msgstr ""
+#~ "Helsingin yliopiston tietojenkäsittelytieteen opiskelijoiden ainejärjestö"
+
+#~ msgid "Founded 1988"
+#~ msgstr "Perustettu 1988"
+
+#~ msgid "Information for freshmen"
+#~ msgstr "Tietoa fukseille"
+
+#~ msgid "/corporate"
+#~ msgstr "/yrityksille"
+
+#~ msgid "Information for corporations"
+#~ msgstr "Tietoa yrityksille"
