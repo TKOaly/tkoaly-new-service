@@ -15,11 +15,14 @@ from easy_thumbnails.fields import ThumbnailerImageField
 
 
 PAGE, DIRECT_LINK, PAGE_SEPARATOR, LINK_SEPARATOR = range(4)
+# Separator page types disabled for now because the retro template
+# doesn't support them
+
 FLATPAGE_TYPE_CHOICES = (
     (PAGE, _("Page")),
-    (PAGE_SEPARATOR, _("Page with menu separator")),
+#    (PAGE_SEPARATOR, _("Page with menu separator")),
     (DIRECT_LINK, _("Direct Link")),
-    (LINK_SEPARATOR, _("Direct Link with menu separator"))
+#    (LINK_SEPARATOR, _("Direct Link with menu separator"))
 )
 
 MARKUP_CHOICES = markup.formatter.choices()
