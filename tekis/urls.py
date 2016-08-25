@@ -26,6 +26,8 @@ from django.http import HttpResponseRedirect
 from tekis.flatpages.views import flatpage
 from tekis.members.api import MemberDetailsView
 
+admin.site.site_header = settings.SITE_NAME
+
 def index(request):
     return render(request, "index.html")
 
