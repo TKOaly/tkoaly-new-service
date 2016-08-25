@@ -52,7 +52,7 @@ class Flatpage(models.Model):
         try:
             return self.localflatpage_set.first().title
         except AttributeError:
-            return _("(no content yet)")
+            return unicode(_("(no content yet)"))
 
     class Meta:
         verbose_name = _("Flatpage")
