@@ -1,0 +1,42 @@
+/*
+Mobile stylesheet
+*/
+
+@media screen and (max-width: 1100px) {
+    div#wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+    div#content {
+        float: none;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    div#menu {
+        float: none;
+        margin: 0 auto;
+    }
+    div#menu ul.sub a {
+        display: inline-block;
+    }
+    div#footer .overlap {
+        width: calc(100% + 60px);
+    }
+    div#footer {
+        width: calc(100% - 40px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div#header h1 a {
+        font-size: 2vw;
+    }
+    div#header img {
+        height: auto;
+        width: auto;
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
