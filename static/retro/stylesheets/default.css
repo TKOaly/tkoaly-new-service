@@ -78,6 +78,7 @@ div#menu a {
 }
 
 div#menu button {
+    border-radius: 0px;
     display: block;
     padding-left: 25px;
     background-color: #fff;

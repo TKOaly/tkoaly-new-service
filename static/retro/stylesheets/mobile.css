@@ -40,15 +40,27 @@ Mobile stylesheet
         margin: 0;
         width: 100%;
     }
-    
     div#header h1 a {
         font-size: 2.7vw;
         background-size: 100px;
         padding-left: 180px;
     }
-
     div#footer .section {
         float: none;
         width: 100%;
+    }
+    div#menu {
+        width: 100%;
+    }
+    div#menu .border {
+        width: 100%;
+    }
+
+    div#menu button {
+        border-radius: 0px;
+    }
+    
+    div#menu .overlap {
+        width: calc(100% - 20px);
     }
 }
