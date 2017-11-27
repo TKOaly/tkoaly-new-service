@@ -31,12 +31,24 @@ Mobile stylesheet
 
 @media screen and (max-width: 900px) {
     div#header h1 a {
-        font-size: 2vw;
+        font-size: 2.6vw;
     }
-    div#header img {
-        height: auto;
-        width: auto;
-        max-width: 300px;
-        max-height: 300px;
+}
+
+@media screen and (max-width: 700px) {
+    div#wrapper {
+        margin: 0;
+        width: 100%;
+    }
+    
+    div#header h1 a {
+        font-size: 2.7vw;
+        background-size: 100px;
+        padding-left: 180px;
+    }
+
+    div#footer .section {
+        float: none;
+        width: 100%;
     }
 }
