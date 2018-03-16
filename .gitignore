@@ -6,3 +6,4 @@ django.mo
 .DS_Store
 public/
 env/
+venv/
