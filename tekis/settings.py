@@ -173,6 +173,6 @@ THUMBNAIL_ALIASES = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
 
-SITE_NAME = "TKO-Äly ry"
+SITE_NAME = "TKO-äly ry"
 SITE_URL = "http://localhost:8000"
 BASE_TEMPLATE = "base_retro.html"

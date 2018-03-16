@@ -45,3 +45,12 @@ Install
 
 Repeat these steps every time you update for smooth sailing. For
 production deployment, also run `python manage.py collectstatic`.
+
+Using Docker
+-------
+1. `docker-compose build` to build the image (The image will have Ubuntu 16.04 and Python 2.7 installed). 
+3. Use `docker ps` to find your container id. You will need it in the next step.
+2. `docker exec -it <CONTAINER ID> ./compilemessages.sh` to compile messages
+2. `docker exec -it <CONTAINER ID> ./migrate.sh` to migrate database
+3. `docker-compose up -d` to start the server. The server defaults to port 8000. This can be changed in the Dockerfile.
+4. To stop the container, use `docker-compose down`.

@@ -7,3 +7,4 @@ django.mo
 public/
 env/
 venv/
+.env
