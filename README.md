@@ -39,6 +39,7 @@ Install
 -------
 
 1. Make sure you are running `Python 3.6` or later and have `pipenv` installed
+2. Copy `.env.example` to `.env` and modify it to suit your needs
 2. Install project requirements with `pipenv install`
 3. Migrate database with `python manage.py migrate`
 4. Compile translations with `python manage.py compilemessages`
@@ -47,11 +48,14 @@ Install
 Repeat these steps every time you update for smooth sailing. For
 production deployment, also run `python manage.py collectstatic`.
 
+Note: `settings.py`
+
 Using Docker **(experimental)**
 -------
-1. `docker-compose build` to build the image (The image will have Ubuntu 16.04 and Python 3.6 installed). 
-2. Use `docker ps` to find your container id. You will need it in the next step.
-3. `docker exec -it <CONTAINER ID> python manage.py compilemessages` to compile messages
-4. `docker exec -it <CONTAINER ID> python manage.py migrate` to migrate database
-5. `docker-compose up -d` to start the server. The server defaults to port 8000. This can be changed in the Dockerfile.
-6. To stop the container, use `docker-compose down`.
+1. `docker-compose build` to build the image (The image will have Ubuntu 16.04 and Python 3.6 installed).
+2. Run `source .env` to apply env vars.
+3. Use `docker ps` to find your container id. You will need it in the next step.
+4. `docker exec -it <CONTAINER ID> python manage.py compilemessages` to compile messages
+5. `docker exec -it <CONTAINER ID> python manage.py migrate` to migrate database
+6. `docker-compose up -d` to start the server. The server defaults to port 8000. This can be changed in the environment file.
+7. To stop the container, use `docker-compose down`.

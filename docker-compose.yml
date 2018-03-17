@@ -9,3 +9,5 @@ services:
       - ${PORT:-8000}:${PORT:-8000}
     environment:
       - PORT=${PORT:-8000}
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}

@@ -12,12 +12,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13'
+SECRET_KEY = os.getenv('SECRET_KEY', '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ["new.tko-aly.fi"]
+# Allowed hosts. WARNING: In production use, please use only the domain name as an allowed host, not an asterisk!
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
