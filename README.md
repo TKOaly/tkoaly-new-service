@@ -48,7 +48,7 @@ Install
 Repeat these steps every time you update for smooth sailing. For
 production deployment, also run `python manage.py collectstatic`.
 
-Note: `settings.py`
+Note: `settings.py` has a setting named ALLOWED_HOSTS which must be changed to the domain where the project is hosted (for security reasons)
 
 Using Docker **(experimental)**
 -------
