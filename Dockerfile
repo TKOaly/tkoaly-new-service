@@ -7,5 +7,6 @@ RUN apt-get update && \
 RUN mkdir /src
 WORKDIR /src
 ADD . /src/
+RUN pip install --upgrade pip
 RUN pip install pipenv
 RUN pipenv install --system
