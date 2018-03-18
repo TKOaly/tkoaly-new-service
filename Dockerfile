@@ -1,12 +1,8 @@
-FROM ubuntu:16.04
-FROM python:3.6
+FROM alpine:3.5
+RUN apk add --no-cache gettext
+FROM python:3.6-slim
 ENV PYTHONUNBUFFERED 1
-EXPOSE ${PORT:-8000}
-RUN apt-get update && \
-    apt-get install -y gettext
 RUN mkdir /src
 WORKDIR /src
 ADD . /src/
-RUN pip install --upgrade pip
-RUN pip install pipenv
-RUN pipenv install --system
+RUN pip install --upgrade pip && pip install pipenv && pipenv install --system
