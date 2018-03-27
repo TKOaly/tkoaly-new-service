@@ -53,10 +53,10 @@ class TekisMember(models.Model):
         """
         Return a boolean of whether the raw_password was correct.
         """
-        czech = hashlib.sha1(
+        czech = hashlib.sha1((
             self.salt
             + getattr(settings, "SITE_LOGIN_SALT", "heiinmpi")
-            + raw_password).hexdigest()
+            + raw_password).encode('utf-8')).hexdigest()
         return czech == self.hashed_password
 
     def save(self, *args, **kwargs):
