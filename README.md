@@ -19,8 +19,7 @@ Legacy members database integration.
 The bundled "members.sqlite3" includes a database that looks like the
 real thing, but with fake data. It is configured to be used by
 default. It includes three users, `kayttaja` (user), `virkailija`
-(officer) and `yllapitaja` (administrator) who all have the password
-`abcabc`.
+(officer) and `yllapitaja` (administrator).
 
 Flatpages app
 -------------
