@@ -1,6 +1,5 @@
-FROM alpine:3.5
-RUN apk add --no-cache gettext
 FROM python:3.6-slim
+RUN apt-get update && apt-get install gettext -y
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /src
 WORKDIR /src

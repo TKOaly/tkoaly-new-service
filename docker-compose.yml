@@ -2,14 +2,10 @@ version: '3'
 services:
   web:
     build: .
+    env_file:
+      - .env
     command: python manage.py runserver 0.0.0.0:${PORT:-8000}
     volumes:
       - .:/src
     ports:
       - ${PORT:-8000}:${PORT:-8000}
-    environment:
-      - PORT=${PORT:-8000}
-      - DEBUG
-      - SECRET_KEY
-      - SITE_NAME
-      - SITE_URL
