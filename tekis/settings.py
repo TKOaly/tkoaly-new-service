@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY',
-                       '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13')
+                       '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13').strip('\"')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
@@ -174,6 +174,6 @@ THUMBNAIL_ALIASES = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
 
-SITE_NAME = os.getenv('SITE_NAME', 'TKO-äly ry')
-SITE_URL = os.getenv('SITE_URL', 'http://localhost:8000')
+SITE_NAME = os.getenv('SITE_NAME', 'TKO-äly ry').strip('\"')
+SITE_URL = os.getenv('SITE_URL', 'http://localhost:8000').strip('\"')
 BASE_TEMPLATE = "base_retro.html"
