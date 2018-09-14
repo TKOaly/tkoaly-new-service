@@ -2,7 +2,9 @@
 
 import os
 
-_ = lambda s: s
+
+def _(s): return s
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -100,8 +102,15 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
     'members': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'members.sqlite3'),
+        'NAME': os.getenv('MYSQL_DATABASE', 'members'),
+        'HOST': os.getenv('MYSQL_HOST', 'localhost'),
+        'PORT': os.getenv('MYSQL_PORT', '3306'),
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': os.getenv('MYSQL_USER', ''),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
 }
 DATABASE_ROUTERS = ['tekis.members.routers.MembersRouter']

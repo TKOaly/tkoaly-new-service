@@ -16,10 +16,8 @@ class TekisAuthBackend(object):
             member = TekisMember.objects.get(username=username)
         except TekisMember.DoesNotExist:
             return None
-
         if not member.check_password(password):
             return None
-
         # create or update a Django user
         name = member.screen_name.split()
         fn = name[0]

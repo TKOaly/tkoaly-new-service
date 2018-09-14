@@ -1,0 +1,11 @@
+.env
+.env.example
+docker-compose.yml
+LICENSE
+README.md
+run-container.sh
+build-container.sh
+db.sqlite3
+members.sqlite3
+.gitignore
+public

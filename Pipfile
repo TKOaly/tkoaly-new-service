@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 django = "==1.10.8"
 django-braces = "==1.8.1"
 django-cors-headers = "==1.1.0"
@@ -20,12 +17,9 @@ six = "==1.10.0"
 textile = "==2.2.2"
 "psycopg2-binary" = "==2.7.4"
 bcrypt = "*"
-
+pymysql = "*"
 
 [dev-packages]
 
-
-
 [requires]
-
 python_version = "3.6"
