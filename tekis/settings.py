@@ -185,4 +185,5 @@ CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
 
 SITE_NAME = os.getenv('SITE_NAME', 'TKO-äly ry').strip('\"')
 SITE_URL = os.getenv('SITE_URL', 'http://localhost:8000').strip('\"')
+SITE_LOGIN_SALT = os.getenv('PASSWD_SALT', 'kekBur')
 BASE_TEMPLATE = "base_retro.html"
