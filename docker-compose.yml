@@ -1,13 +1,38 @@
 version: '3'
+volumes:
+  tekis-mysql-data:
+  tekis-new-service:
 services:
+  mysli:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: unsecure
+      MYSQL_DATABASE: tekis-website
+    volumes:
+      - tekis-mysql-data:/var/lib/mysql
   web:
     build: .
-    env_file:
-      - .env
+    environment:
+      - MYSQL_HOST=mysli
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=members
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=unsecure
+      - DEBUG=false
+      - SECRET_KEY=unsecure
+      - PASSWD_SALT=unsecure
+      - SITE_NAME=TKO-äly ry
+      - PORT=5000
+      - SITE_URL=http://localhost:${PORT}
     volumes:
-      - ./public:/public
-      - ./db.sqlite3:/db.sqlite
-      - ./members.sqlite3:/members.sqlite3
+      - tekis-new-service:/src/public
     ports:
-     - "${PORT}:5000"
+     - "5000:5000"
     restart: always
+    depends_on:
+      - mysli
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 5001:8080
