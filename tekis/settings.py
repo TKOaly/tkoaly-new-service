@@ -2,22 +2,25 @@
 
 import os
 
-_ = lambda s: s
+
+def _(s): return s
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13'
+SECRET_KEY = os.getenv('SECRET_KEY',
+                       '=335vbnv-yq=zqk67=%wj38a2p71m029gx&zy0yr7bve9$zi13').strip('\"')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ["new.tko-aly.fi"]
+# Allowed hosts. WARNING: In production use, please use only the domain name as an allowed host, not an asterisk!
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -80,7 +83,6 @@ MARKUP_CHOICES = (
     'linebreaks',
 )
 
-
 TOP_LEVEL, ASSOCIATION, ACTIVITIES = range(3)
 FLATPAGES_MENU_CATEGORIES = (
     (ASSOCIATION, _("Association")),
@@ -91,18 +93,32 @@ FLATPAGES_DEFAULT_MENU_CATEGORY = TOP_LEVEL
 
 WSGI_APPLICATION = 'tekis.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tekis-website',
+        'DATABASE': 'tekis-website',
+        'HOST': os.getenv('MYSQL_HOST', 'localhost'),
+        'PORT': os.getenv('MYSQL_PORT', '3306'),
+        'USER': os.getenv('MYSQL_USER', ''),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
+        'OPTIONS': {
+          'autocommit': True,
+        },
     },
     'members': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'members.sqlite3'),
+        'NAME': os.getenv('MYSQL_DATABASE', 'members'),
+        'HOST': os.getenv('MYSQL_HOST', 'localhost'),
+        'PORT': os.getenv('MYSQL_PORT', '3306'),
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': os.getenv('MYSQL_USER', ''),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
 }
 DATABASE_ROUTERS = ['tekis.members.routers.MembersRouter']
@@ -115,23 +131,25 @@ LOGIN_URL = "/login/"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
-
 
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
@@ -143,19 +161,14 @@ TIME_ZONE = 'Europe/Helsinki'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "tekis", "locale"),
-)
-
+LOCALE_PATHS = (os.path.join(BASE_DIR, "tekis", "locale"), )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "public", "static")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "public", "files")
 
@@ -163,8 +176,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "files")
 # https://github.com/SmileyChris/easy-thumbnails/blob/master/docs/usage.rst
 THUMBNAIL_ALIASES = {
     '': {
-        _('small'): {'size': (250, 250)},
-        _('banner'): {'size': (960, 350), 'crop': "smart"}
+        _('small'): {
+            'size': (250, 250)
+        },
+        _('banner'): {
+            'size': (960, 350),
+            'crop': "smart"
+        }
     },
 }
 
@@ -173,6 +191,7 @@ THUMBNAIL_ALIASES = {
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/oauth/(authorize|token|revoke_token)/$'
 
-SITE_NAME = "TKO-Äly ry"
-SITE_URL = "http://localhost:8000"
+SITE_NAME = os.getenv('SITE_NAME', 'TKO-äly ry').strip('\"')
+SITE_URL = os.getenv('SITE_URL', 'http://localhost:8000').strip('\"')
+SITE_LOGIN_SALT = os.getenv('PASSWD_SALT', 'kekBur')
 BASE_TEMPLATE = "base_retro.html"
